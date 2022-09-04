@@ -142,6 +142,35 @@ section .title::after{
 }
 
 
+/*-------------------------- 
+    Link over the screen
+----------------------------*/
+
+.Onscreen-link{
+    position: fixed;    
+    z-index: 999;
+    margin-top: 227px;
+        
+}
+
+.Onscreen-link .btn{
+    display: block;
+    width: 60px;
+    height: 60px;
+    font-size: 2.88rem;
+    color: crimson;
+    background-color: white;
+    border: none;
+    border-radius: 20px;    
+    margin: 5px;
+    transition: all .3s ease;
+}
+
+.Onscreen-link .btn:hover{
+    color: white;
+    background-color: crimson;
+}
+
 
 /*-------------------------- 
     Home section Styling
@@ -201,7 +230,7 @@ section .title::after{
     border-radius: 8px;
     margin-top: 20px;
     border: 2px solid crimson;
-    transition: all 0.3s ease;
+    transition: all .3s ease;
 }
 .home .home-content a:hover{
     color: crimson;
@@ -217,16 +246,15 @@ section .title::after{
     content: "who i am";
 }
 .about .about-content .left{
-    width: 45%;
+    width: 42%;
 }
 .about .about-content .left img{
-    height: 300px;
-    width: 300px;
+    height: 400px;
+    width: 450px;
     object-fit: cover;
     border: 3px solid crimson;
-    border-radius: 20px;
+    border-radius: 30px;
     /* margin-left: -50px; */
-    
 }
 
 
@@ -237,13 +265,14 @@ section .title::after{
 }
 
 .about .about-content .right{
-    width: 55%;
+    width: 58%;
 
 }
 .about .about-content .right .text{
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 15px;
+    /* margin-top: -75px; */
 }
 
 .about .about-content .right .text span{
@@ -470,7 +499,9 @@ section .title::after{
     background: crimson!important;
 }
 
-/* contact section styling */
+/*-------------------------
+  contact section styling 
+  -------------------------*/
 .contact .title::after{
     content: "get in touch";
 }
@@ -568,12 +599,12 @@ section .title::after{
 
 .social-media{
     text-align: center;
-    margin-top: 60px;    
+    margin-top: 70px;    
 }
 .social-media button{
     font-size: 3rem;
     padding: 10px 20px;
-    color: crimson;
+    color: black;
     background-color: white;
     border: none;
     border-radius: 20px;
@@ -585,7 +616,9 @@ section .title::after{
 }
 
 
-/* footer section styling */
+/*----------------------------
+    footer section styling 
+------------------------------*/
 footer{
     background: #111;
     padding: 15px 23px;
@@ -615,6 +648,17 @@ footer span a:hover{
     .max-width{
         padding: 0 50px;
     }
+
+    .home .home-content .text-2{
+        font-size: 56px;
+    }
+    .home .home-content .text-3{
+        font-size: 35px;
+    }
+    .home .home-content .text-3 span{
+        font-size: 45px;
+    }
+    
 }
 @media (max-width: 947px){
     .menu-btn{
@@ -647,10 +691,13 @@ footer span a:hover{
         font-size: 25px;
     }
     .home .home-content .text-2{
-        font-size: 70px;
+        font-size: 55px;
     }
     .home .home-content .text-3{
-        font-size: 35px;
+        font-size: 30px;
+    }
+    .home .home-content .text-3 span{
+        font-size: 45px;
     }
     .home .home-content a{
         font-size: 23px;
@@ -685,11 +732,21 @@ footer span a:hover{
     .max-width{
         padding: 0 23px;
     }
+    .home{
+        background-position-x: -120px;
+    }
+    .home .home-content .text-1{
+        font-size: 25px;
+    }
     .home .home-content .text-2{
-        font-size: 60px;
+        font-size: 40px;
     }
     .home .home-content .text-3{
-        font-size: 32px;
+        font-size: 25px;
+    }
+
+    .home .home-content .text-3 span{
+        font-size: 35px;
     }
     .home .home-content a{
         font-size: 20px;
@@ -697,14 +754,32 @@ footer span a:hover{
     .services .serv-content .card{
         width: 100%;
     }
+    
 }
 
 @media (max-width: 500px) {
+    .home{
+        background-size: 650px 650px;
+        background-position-x: -220px;
+        background-size: cover;        
+    }
+
+    .home-content{
+        margin-top: -20px;
+    }
+    .home .home-content .text-1{
+        font-size: 20px;
+    }
+
     .home .home-content .text-2{
-        font-size: 50px;
+        font-size: 30px;
+        
     }
     .home .home-content .text-3{
-        font-size: 27px;
+        font-size: 20px;
+    }
+    .home .home-content .text-3 span{
+        font-size: 30px;
     }
     .about .about-content .right .text,
     .skills .skills-content .left .text{
@@ -729,5 +804,6 @@ footer span a:hover{
         line-height: 38px;
     }
 }
+
 
 
