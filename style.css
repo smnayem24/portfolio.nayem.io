@@ -565,6 +565,26 @@ section .title::after{
   color: crimson;
   background: none;
 }
+
+.social-media{
+    text-align: center;
+    margin-top: 60px;    
+}
+.social-media button{
+    font-size: 3rem;
+    padding: 10px 20px;
+    color: crimson;
+    background-color: white;
+    border: none;
+    border-radius: 20px;
+    transition: all 0.4s ease;
+}
+.social-media button:hover{
+    background-color: crimson;
+    color: white;
+}
+
+
 /* footer section styling */
 footer{
     background: #111;
