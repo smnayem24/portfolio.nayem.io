@@ -805,5 +805,21 @@ footer span a:hover{
     }
 }
 
+/*--------------------------
+    Link Over the screen
+----------------------------*/
+@media screen and (max-width:1300px) {
+    .Onscreen-link .btn{
+        font-size: 1.5rem;
+        width: 40px;
+        height: 40px;
+        background: none;
+    }
+}
+@media screen and (max-width:991px) {
+    .Onscreen-link{
+        display: none;        
+    }
+}
 
 
