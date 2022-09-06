@@ -149,21 +149,22 @@ section .title::after{
 .Onscreen-link{
     position: fixed;    
     z-index: 999;
-    margin-top: 227px;
-        
+    top: 50%;
+    left: 2%;
+    transform: translate(-50%, -50%);        
 }
 
 .Onscreen-link .btn{
     display: block;
-    width: 60px;
-    height: 60px;
-    font-size: 2.88rem;
+    width: 50px;
+    height: 50px;
+    font-size: 2.5rem;
     color: crimson;
     background-color: white;
     border: none;
     border-radius: 20px;    
     margin: 5px;
-    transition: all .3s ease;
+    transition: all .3s ease;    
 }
 
 .Onscreen-link .btn:hover{
@@ -637,6 +638,32 @@ footer span a:hover{
 /* Responsive media query start*/
 
 /* responsive media query start */
+@media screen and (max-width:1390px) {
+    .max-width{
+        max-width: 1260px;
+        padding: 0 76px;
+        margin: auto;
+    }
+    .Onscreen-link{
+        left: 2.5%;
+    }
+    .home .home-content .text-1{
+        font-size: 30px;
+    }
+    .home .home-content .text-2{
+        font-size: 57px;
+    }
+    .home .home-content .text-3{
+        font-size: 37px;
+    }
+
+    .home .home-content .text-3 span{
+        font-size: 40px;
+    }
+
+
+}
+
 @media (max-width: 1104px) {
     .about .about-content .left img{
         height: 350px;
@@ -644,19 +671,51 @@ footer span a:hover{
     }
 }
 
+@media screen and (max-width:1024px) {
+
+    .max-width {
+        max-width: 1300px;
+        padding: 0 76px;
+        margin: auto;
+    }
+
+    .Onscreen-link{
+        left: 2.5%;
+    }
+    .Onscreen-link .btn{
+        font-size: 1.8rem;
+        width: 40px;
+        height: 40px;
+    }
+
+    .home .home-content .text-1{
+        font-size: 25px;
+    }
+    .home .home-content .text-2{
+        font-size: 50px;
+    }
+    .home .home-content .text-3{
+        font-size: 27px;
+    }
+
+    .home .home-content .text-3 span{
+        font-size: 35px;
+    }
+}
+
 @media (max-width: 991px) {
     .max-width{
-        padding: 0 50px;
+        padding: 0 80px;
     }
 
     .home .home-content .text-2{
-        font-size: 56px;
+        font-size: 50px;
     }
     .home .home-content .text-3{
-        font-size: 35px;
+        font-size: 30px;
     }
     .home .home-content .text-3 span{
-        font-size: 45px;
+        font-size: 40px;
     }
     
 }
@@ -690,6 +749,14 @@ footer span a:hover{
         margin: 20px 0;
         font-size: 25px;
     }
+
+    .Onscreen-link{
+        left: 3.5%;
+    }
+    .home{
+        background-position-x: 35%;
+    }
+
     .home .home-content .text-2{
         font-size: 55px;
     }
@@ -730,19 +797,20 @@ footer span a:hover{
 
 @media (max-width: 690px) {
     .max-width{
-        padding: 0 23px;
+        padding: 0 65px;
     }
+
     .home{
-        background-position-x: -120px;
+        background-position-x: 45%;
     }
     .home .home-content .text-1{
         font-size: 25px;
     }
     .home .home-content .text-2{
-        font-size: 40px;
+        font-size: 45px;
     }
     .home .home-content .text-3{
-        font-size: 25px;
+        font-size: 27px;
     }
 
     .home .home-content .text-3 span{
@@ -758,12 +826,21 @@ footer span a:hover{
 }
 
 @media (max-width: 500px) {
-    .home{
-        background-size: 650px 650px;
-        background-position-x: -220px;
-        background-size: cover;        
+    .max-width{
+        max-width: 0 40px;
     }
-
+    .Onscreen-link{
+        left: 4.8%;
+    }
+    .Onscreen-link .btn{
+        width: 30px;
+        height: 30px;
+        font-size: 1.4rem;
+    }
+    
+    .home{
+        background-position-x: 60%;
+    }
     .home-content{
         margin-top: -20px;
     }
@@ -795,6 +872,15 @@ footer span a:hover{
     .right form .error-box{
        width: 150px;
     }
+    .social-media button{
+        font-size: 2rem;
+        padding: 5px 10px;
+        color: black;
+        background-color: white;
+        border: none;
+        border-radius: 15px;
+        transition: all 0.4s ease;
+    }
     .scroll-up-btn{
         right: 15px;
         bottom: 15px;
@@ -805,20 +891,23 @@ footer span a:hover{
     }
 }
 
-/*--------------------------
-    Link Over the screen
-----------------------------*/
-@media screen and (max-width:1300px) {
-    .Onscreen-link .btn{
-        font-size: 1.5rem;
-        width: 40px;
-        height: 40px;
-        background: none;
+@media screen and (max-width:400px) {
+    .home{
+        background-position-x: 70%;
     }
-}
-@media screen and (max-width:991px) {
-    .Onscreen-link{
-        display: none;        
+    .home .home-content .text-1{
+        font-size: 18px;
+    }
+
+    .home .home-content .text-2{
+        font-size: 29.1px;
+        
+    }
+    .home .home-content .text-3{
+        font-size: 18px;
+    }
+    .home .home-content .text-3 span{
+        font-size: 25px;
     }
 }
 
