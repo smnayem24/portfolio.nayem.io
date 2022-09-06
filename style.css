@@ -795,6 +795,24 @@ footer span a:hover{
     }
 }
 
+@media screen and (max-width:768px) {
+    .home{
+        background-position-x: 53%;
+    }
+    .home .home-content .text-1{
+        font-size: 25px;
+    }
+    .home .home-content .text-2{
+        font-size: 46.8px;
+    }
+    .home .home-content .text-3{
+        font-size: 28px;
+    }
+    .home .home-content .text-3 span{
+        font-size: 40px;
+    }
+}
+
 @media (max-width: 690px) {
     .max-width{
         padding: 0 65px;
@@ -827,10 +845,10 @@ footer span a:hover{
 
 @media (max-width: 500px) {
     .max-width{
-        max-width: 0 40px;
+        max-width: 0 5px;
     }
     .Onscreen-link{
-        left: 4.8%;
+        left: 95%;
     }
     .Onscreen-link .btn{
         width: 30px;
@@ -856,7 +874,7 @@ footer span a:hover{
         font-size: 20px;
     }
     .home .home-content .text-3 span{
-        font-size: 29px;
+        font-size: 30px;
     }
     .about .about-content .right .text,
     .skills .skills-content .left .text{
