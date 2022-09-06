@@ -851,9 +851,10 @@ footer span a:hover{
         left: 95%;
     }
     .Onscreen-link .btn{
-        width: 30px;
-        height: 30px;
-        font-size: 1.4rem;
+        width: 35px;
+        height: 35px;
+        font-size: 1.6rem;
+        background: none;
     }
     
     .home{
