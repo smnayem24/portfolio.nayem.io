@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+  
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,6 +12,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
     <!-- <script src="script.js"></script> -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link
@@ -18,8 +20,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
       integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
       crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+      referrerpolicy="no-referrer"/>
   </head>
 
   <body>
@@ -33,7 +34,7 @@
           <li><a href="#about">About</a></li>
           <li><a href="#services">Service</a></li>
           <li><a href="#skills">Skills</a></li>
-          <li><a href="#home">Gallery</a></li>
+          <li><a href="#gallery">Gallery</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="menu-btn">
@@ -69,17 +70,42 @@
       </button>
     </div>
 
-    <!--Home Section Strart-->
+    <!-- Home Section Start -->
     <section class="home" id="home">
       <div class="max-width">
         <div class="home-content">
           <div class="text-1">Hello, my name is</div>
           <div class="text-2">MD Jannatul Nayem</div>
           <div class="text-3">And I'm a <span>Web Developer</span></div>
-          <a>Hire me</a>
+          <button id="hireButton">Hire me</button>
         </div>
       </div>
     </section>
+
+    <!-- Floating Window -->
+    <div id="floatingWindow">
+      <button id="closeButton" class="close-button">&times;</button>
+      <br>
+        <!-- Service selection options -->
+        <label for="service">Choose a service:</label> <br>
+        <select id="service">
+          <option value="service1">Service 1</option>
+          <option value="service2">Service 2</option>
+          <!-- Add more service options as needed -->
+        </select>
+
+        <!-- Payment options -->
+        <br>
+        <label for="payment">Choose a payment option:</label> <br>
+        <input type="radio" name="payment" value="option1" />Option 1
+        <input type="radio" name="payment" value="option2" />Option 2
+        <!-- Add more payment options as needed -->
+
+        <br>
+        <!-- Payment submission button -->
+        <button type="submit">Make Payment</button>
+      </form>
+    </div>
 
     <!--About Section-->
 
