@@ -34,19 +34,20 @@ $(document).ready(function(){
     });
 
     // typing text animation script
-    var typed = new Typed(".typing", {
+    var typed1 = new Typed(".typing", {
         strings: ["YouTuber", "Developer", "Blogger", "Designer", "Freelancer"],
         typeSpeed: 100,
         backSpeed: 60,
         loop: true
     });
-
-    var typed = new Typed(".typing-2", {
+    
+    var typed2 = new Typed(".typing-2", {
         strings: ["YouTuber", "Developer", "Blogger", "Designer", "Freelancer"],
         typeSpeed: 100,
         backSpeed: 60,
         loop: true
     });
+    
 
     // owl carousel script
     $('.carousel').owlCarousel({
@@ -70,4 +71,20 @@ $(document).ready(function(){
             }
         }
     });
+
+
 });
+
+const hireButton = document.getElementById('hireButton');
+const floatingWindow = document.getElementById('floatingWindow');
+
+hireButton.addEventListener('click', () => {
+  floatingWindow.style.display = 'block';
+});
+
+const closeButton = document.getElementById('closeButton');
+
+closeButton.addEventListener('click', () => {
+  floatingWindow.style.display = 'none';
+});
+
