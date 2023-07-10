@@ -222,7 +222,7 @@ section .title::after{
     font-weight: 500;
 }
 
-.home .home-content a{
+.home .home-content button{
     display: inline-block;
     background-color: crimson;
     font-size: 25px;
@@ -233,10 +233,35 @@ section .title::after{
     border: 2px solid crimson;
     transition: all .3s ease;
 }
-.home .home-content a:hover{
+.home .home-content button:hover{
     color: crimson;
     background: none;
 }
+
+
+/* CSS Styles */
+#floatingWindow {
+    /* Existing styles for positioning the floating window */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 50%;
+    width: 70%;
+    font-size: large;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    color: #333;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
 
 
 
@@ -303,6 +328,18 @@ section .title::after{
 
 }
 
+#floatingWindow {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+}
 
 /*------------------- 
     Service Section 
@@ -855,6 +892,7 @@ footer span a:hover{
         height: 35px;
         font-size: 1.6rem;
         background: none;
+        
     }
     
     .home{
