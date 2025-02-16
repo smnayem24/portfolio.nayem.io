@@ -2499,7 +2499,6 @@ section .title::after {
   justify-content: center;
   align-items: center;
   background: var(--surface-color);
-  perspective: 1000px;
 }
 
 .orbital-skills {
@@ -2509,7 +2508,6 @@ section .title::after {
   display: flex;
   justify-content: center;
   align-items: center;
-  transform-style: preserve-3d;
 }
 
 .core-node {
@@ -2530,6 +2528,36 @@ section .title::after {
   animation: pulsate 2s ease-in-out infinite;
 }
 
+/* Create orbital paths */
+.orbit {
+  position: absolute;
+  border: 1px dashed rgba(37, 99, 235, 0.2);
+  border-radius: 50%;
+  animation: rotate 20s linear infinite;
+}
+
+/* Different sized orbits */
+.orbit:nth-child(1) {
+  width: 200px;
+  height: 200px;
+  animation-duration: 15s;
+}
+.orbit:nth-child(2) {
+  width: 300px;
+  height: 300px;
+  animation-duration: 20s;
+}
+.orbit:nth-child(3) {
+  width: 400px;
+  height: 400px;
+  animation-duration: 25s;
+}
+.orbit:nth-child(4) {
+  width: 500px;
+  height: 500px;
+  animation-duration: 30s;
+}
+
 .skill-item {
   position: absolute;
   background: rgba(37, 99, 235, 0.1);
@@ -2539,76 +2567,59 @@ section .title::after {
   color: var(--text-color);
   font-size: 1rem;
   white-space: nowrap;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
   border: 1px solid rgba(37, 99, 235, 0.2);
   cursor: pointer;
+  transform-origin: center;
 }
 
-/* Create orbital rings */
-.orbital-ring {
-  position: absolute;
-  border: 1px solid rgba(37, 99, 235, 0.1);
-  border-radius: 50%;
-  animation: rotate 20s linear infinite;
-}
-
-.ring-1 {
-  width: 300px;
-  height: 300px;
-  animation-duration: 15s;
-}
-.ring-2 {
-  width: 400px;
-  height: 400px;
-  animation-duration: 20s;
-}
-.ring-3 {
-  width: 500px;
-  height: 500px;
-  animation-duration: 25s;
-}
-.ring-4 {
-  width: 600px;
-  height: 600px;
-  animation-duration: 30s;
-}
-
-/* Position skills in different orbital rings */
-.skill-item:nth-child(1) {
-  animation: orbit 15s linear infinite;
-}
+/* Assign skills to orbits and set their rotation */
 .skill-item:nth-child(2) {
-  animation: orbit 20s linear infinite 2s;
+  animation: moveInOrbit1 15s linear infinite;
 }
 .skill-item:nth-child(3) {
-  animation: orbit 25s linear infinite 4s;
+  animation: moveInOrbit1 15s linear infinite;
+  animation-delay: -7.5s;
 }
 .skill-item:nth-child(4) {
-  animation: orbit 30s linear infinite 6s;
+  animation: moveInOrbit1 15s linear infinite;
+  animation-delay: -3.75s;
 }
+
 .skill-item:nth-child(5) {
-  animation: orbit 15s linear infinite 8s;
+  animation: moveInOrbit2 20s linear infinite;
 }
 .skill-item:nth-child(6) {
-  animation: orbit 20s linear infinite 10s;
+  animation: moveInOrbit2 20s linear infinite;
+  animation-delay: -10s;
 }
 .skill-item:nth-child(7) {
-  animation: orbit 25s linear infinite 12s;
+  animation: moveInOrbit2 20s linear infinite;
+  animation-delay: -5s;
 }
+
 .skill-item:nth-child(8) {
-  animation: orbit 30s linear infinite 14s;
+  animation: moveInOrbit3 25s linear infinite;
 }
 .skill-item:nth-child(9) {
-  animation: orbit 15s linear infinite 16s;
+  animation: moveInOrbit3 25s linear infinite;
+  animation-delay: -12.5s;
 }
 .skill-item:nth-child(10) {
-  animation: orbit 20s linear infinite 18s;
+  animation: moveInOrbit3 25s linear infinite;
+  animation-delay: -6.25s;
 }
+
 .skill-item:nth-child(11) {
-  animation: orbit 25s linear infinite 20s;
+  animation: moveInOrbit4 30s linear infinite;
 }
 .skill-item:nth-child(12) {
-  animation: orbit 30s linear infinite 22s;
+  animation: moveInOrbit4 30s linear infinite;
+  animation-delay: -15s;
+}
+.skill-item:nth-child(13) {
+  animation: moveInOrbit4 30s linear infinite;
+  animation-delay: -7.5s;
 }
 
 .skill-item:hover {
@@ -2620,7 +2631,17 @@ section .title::after {
   animation-play-state: paused;
 }
 
-@keyframes orbit {
+/* Define orbital animations */
+@keyframes moveInOrbit1 {
+  from {
+    transform: rotate(0deg) translateX(100px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(100px) rotate(-360deg);
+  }
+}
+
+@keyframes moveInOrbit2 {
   from {
     transform: rotate(0deg) translateX(150px) rotate(0deg);
   }
@@ -2629,12 +2650,21 @@ section .title::after {
   }
 }
 
-@keyframes rotate {
+@keyframes moveInOrbit3 {
   from {
-    transform: rotate(0deg);
+    transform: rotate(0deg) translateX(200px) rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(360deg) translateX(200px) rotate(-360deg);
+  }
+}
+
+@keyframes moveInOrbit4 {
+  from {
+    transform: rotate(0deg) translateX(250px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(250px) rotate(-360deg);
   }
 }
 
@@ -2653,20 +2683,12 @@ section .title::after {
 /* Responsive adjustments */
 @media (max-width: 900px) {
   .orbital-skills {
-    width: 600px;
-    height: 600px;
     transform: scale(0.8);
-  }
-
-  .skill-item {
-    font-size: 0.9rem;
   }
 }
 
 @media (max-width: 640px) {
   .orbital-skills {
-    width: 300px;
-    height: 300px;
     transform: scale(0.5);
   }
 
