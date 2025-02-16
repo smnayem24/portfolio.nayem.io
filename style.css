@@ -3251,3 +3251,185 @@ section .title::after {
 }
 
 /* ...existing code... */
+
+/* Adjust container size and orbital layout */
+.skills-orbital {
+  min-height: 600px; /* Reduced from 100vh */
+  padding: 20px; /* Reduced padding */
+}
+
+.orbital-skills {
+  width: 800px;
+  height: 600px; /* Reduced from 800px */
+  margin: 0 auto;
+}
+
+/* Keep orbits elliptical by adjusting height while maintaining width */
+.orbit-1 {
+  width: 300px;
+  height: 200px; /* Reduced height */
+}
+.orbit-2 {
+  width: 450px;
+  height: 300px; /* Reduced height */
+}
+.orbit-3 {
+  width: 600px;
+  height: 400px; /* Reduced height */
+}
+.orbit-4 {
+  width: 750px;
+  height: 500px; /* Reduced height */
+}
+
+/* Adjust animation radiuses to match new proportions */
+@keyframes orbit1 {
+  from {
+    transform: rotate(0deg) translateX(150px) translateY(50px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(150px) translateY(50px) rotate(-360deg);
+  }
+}
+
+@keyframes orbit2 {
+  from {
+    transform: rotate(0deg) translateX(225px) translateY(75px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(225px) translateY(75px) rotate(-360deg);
+  }
+}
+
+@keyframes orbit3 {
+  from {
+    transform: rotate(0deg) translateX(300px) translateY(100px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(300px) translateY(100px)
+      rotate(-360deg);
+  }
+}
+
+@keyframes orbit4 {
+  from {
+    transform: rotate(0deg) translateX(375px) translateY(125px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(375px) translateY(125px)
+      rotate(-360deg);
+  }
+}
+
+/* ...existing code... */
+
+/* Adjust container height */
+.orbital-skills {
+  width: 800px;
+  height: 700px; /* Main container height */
+  margin: 0 auto;
+}
+
+/* Keep orbits elliptical by adjusting heights proportionally */
+.orbit-1 {
+  width: 300px;
+  height: 280px; /* Increased for 700px container */
+}
+.orbit-2 {
+  width: 450px;
+  height: 420px; /* Increased for 700px container */
+}
+.orbit-3 {
+  width: 600px;
+  height: 560px; /* Increased for 700px container */
+}
+.orbit-4 {
+  width: 750px;
+  height: 650px; /* Increased for 700px container */
+}
+
+/* ...existing code... */
+
+/* Adjust container height */
+.orbital-skills {
+  width: 800px;
+  height: 700px; /* Increased from 610px to 660px */
+  margin: 0 auto;
+}
+
+/* Keep orbits elliptical by adjusting height while maintaining width */
+.orbit-1 {
+  width: 300px;
+  height: 280px; /* Increased from 210px to 260px */
+}
+.orbit-2 {
+  width: 450px;
+  height: 420px; /* Increased from 310px to 360px */
+}
+.orbit-3 {
+  width: 600px;
+  height: 560px; /* Increased from 410px to 460px */
+}
+.orbit-4 {
+  width: 750px;
+  height: 650px; /* Increased from 510px to 560px */
+}
+
+/* ...existing code... */
+
+/* Adjust container height */
+.orbital-skills {
+  width: 800px;
+  height: 610px; /* Increased from 600px to 610px */
+  margin: 0 auto;
+}
+
+/* Keep orbits elliptical by slightly adjusting height */
+.orbit-1 {
+  width: 300px;
+  height: 210px; /* Increased from 200px to 210px */
+}
+.orbit-2 {
+  width: 450px;
+  height: 310px; /* Increased from 300px to 310px */
+}
+.orbit-3 {
+  width: 600px;
+  height: 410px; /* Increased from 400px to 410px */
+}
+.orbit-4 {
+  width: 750px;
+  height: 510px; /* Increased from 500px to 510px */
+}
+
+/* ...existing code... */
+
+/* Slower orbit animations */
+.orbit-1 {
+  animation: rotate 45s linear infinite; /* Increased from 20s */
+}
+.orbit-2 {
+  animation: rotate 60s linear infinite reverse; /* Increased from 25s */
+}
+.orbit-3 {
+  animation: rotate 75s linear infinite; /* Increased from 30s */
+}
+.orbit-4 {
+  animation: rotate 90s linear infinite reverse; /* Increased from 35s */
+}
+
+/* Slower counter-rotation for skill items */
+.orbit-1 .skill-item {
+  animation: counter-rotate 45s linear infinite;
+}
+.orbit-2 .skill-item {
+  animation: counter-rotate 60s linear infinite reverse;
+}
+.orbit-3 .skill-item {
+  animation: counter-rotate 75s linear infinite;
+}
+.orbit-4 .skill-item {
+  animation: counter-rotate 90s linear infinite reverse;
+}
+
+/* ...existing code... */
