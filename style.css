@@ -260,6 +260,10 @@
     z-index: 2;
 }
 
+.nav-arrow:hover i {
+    color: white;
+}
+
 .nav-arrow::before {
     content: '';
     position: absolute;
@@ -279,6 +283,7 @@
     background: white;
     transform: scale(1.1);
     border-color: var(--primary-color);
+    color: white;
 }
 
 .nav-arrow.prev {
