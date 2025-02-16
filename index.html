@@ -10,7 +10,6 @@
       src="https://kit.fontawesome.com/a076d05399.js"
       crossorigin="anonymous"
     ></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- <script src="script.js"></script> -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -293,7 +292,12 @@
               <span class="project-tag">Cryptography</span>
             </div>
             <div class="project-links">
-              <a href="#" class="project-link primary">Learn More</a>
+              <a
+                href="#"
+                class="project-link primary project-details-btn"
+                data-project="encryption"
+                >Read More</a
+              >
             </div>
           </div>
 
@@ -318,7 +322,12 @@
               <span class="project-tag">RTL</span>
             </div>
             <div class="project-links">
-              <a href="#" class="project-link primary">Learn More</a>
+              <a
+                href="#"
+                class="project-link primary project-details-btn"
+                data-project="traffic"
+                >Read More</a
+              >
             </div>
           </div>
 
@@ -341,7 +350,12 @@
               <span class="project-tag">RTL</span>
             </div>
             <div class="project-links">
-              <a href="#" class="project-link primary">Learn More</a>
+              <a
+                href="#"
+                class="project-link primary project-details-btn"
+                data-project="clock"
+                >Read More</a
+              >
             </div>
           </div>
 
@@ -364,7 +378,12 @@
               <span class="project-tag">CPU Design</span>
             </div>
             <div class="project-links">
-              <a href="#" class="project-link primary">Learn More</a>
+              <a
+                href="#"
+                class="project-link primary project-details-btn"
+                data-project="riscv"
+                >Read More</a
+              >
             </div>
           </div>
 
@@ -387,7 +406,12 @@
               <span class="project-tag">Synthesis</span>
             </div>
             <div class="project-links">
-              <a href="#" class="project-link primary">Learn More</a>
+              <a
+                href="#"
+                class="project-link primary project-details-btn"
+                data-project="alu"
+                >Read More</a
+              >
             </div>
           </div>
         </div>
@@ -403,6 +427,86 @@
         </div>
       </div>
     </section>
+
+    <!-- Add Modal Container -->
+    <div class="modal-container">
+      <!-- Encryption Project Modal -->
+      <div class="project-modal" id="encryption-modal">
+        <button class="close-modal">&times;</button>
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>Efficient Encryption and Decryption System</h2>
+            <div class="project-meta">
+              <span><i class="fas fa-calendar"></i> 2023</span>
+              <span><i class="fas fa-code-branch"></i> FPGA Design</span>
+            </div>
+          </div>
+          <div class="project-gallery">
+            <img src="images/projects/encryption-1.jpg" alt="Project Image" />
+            <img src="images/projects/encryption-2.jpg" alt="Project Image" />
+          </div>
+          <div class="project-info">
+            <h3>Project Overview</h3>
+            <p>
+              Developed a comprehensive encryption and decryption system
+              implementing various cryptographic algorithms on FPGA using
+              Verilog HDL. The system supports multiple key sizes (16, 32, 64 &
+              128 bits) and offers flexible configuration options.
+            </p>
+
+            <h3>Technical Details</h3>
+            <ul>
+              <li>Implemented using Xilinx Vivado Design Suite</li>
+              <li>
+                Achieved optimal resource utilization through efficient RTL
+                design
+              </li>
+              <li>Integrated multiple encryption standards and protocols</li>
+              <li>Comprehensive testbench development and verification</li>
+            </ul>
+
+            <h3>Key Achievements</h3>
+            <p>
+              Successfully achieved 95% resource optimization compared to
+              traditional implementations, with throughput improvement of 40%
+              for 128-bit encryption.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Traffic Signal Modal -->
+      <div class="project-modal" id="traffic-modal">
+        <button class="close-modal">&times;</button>
+        <div class="modal-content">
+          <!-- Add similar structure as encryption modal -->
+        </div>
+      </div>
+
+      <!-- Clock Project Modal -->
+      <div class="project-modal" id="clock-modal">
+        <button class="close-modal">&times;</button>
+        <div class="modal-content">
+          <!-- Add similar structure as encryption modal -->
+        </div>
+      </div>
+
+      <!-- RISC-V Project Modal -->
+      <div class="project-modal" id="riscv-modal">
+        <button class="close-modal">&times;</button>
+        <div class="modal-content">
+          <!-- Add similar structure as encryption modal -->
+        </div>
+      </div>
+
+      <!-- ALU Project Modal -->
+      <div class="project-modal" id="alu-modal">
+        <button class="close-modal">&times;</button>
+        <div class="modal-content">
+          <!-- Add similar structure as encryption modal -->
+        </div>
+      </div>
+    </div>
 
     <!--Contact Section-->
     <section class="contact" id="contact">
@@ -514,7 +618,7 @@
         <span class="far fa-copyright"></span> 2020 All rights reserved.</span
       >
     </footer>
-    <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="script.js"></script>
   </body>
 </html>
