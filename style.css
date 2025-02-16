@@ -1151,6 +1151,571 @@ section .title::after {
   }
 }
 
+/* Skills Tree Styles */
+.skills-tree {
+  width: 100%;
+  min-height: 600px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tree-container {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.skill-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.root-node {
+  background: #2a2a2a;
+  color: #fff;
+  padding: 20px 40px;
+  border-radius: 30px;
+  font-size: 24px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.root-branches {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  gap: 20px;
+  position: relative;
+}
+
+.skill-branch {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
+.branch-node {
+  background: #3a3a3a;
+  color: #fff;
+  padding: 15px 30px;
+  border-radius: 25px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.skill-leaves {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.skill-leaf {
+  background: #4a4a4a;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Hover Effects */
+.root-node:hover,
+.branch-node:hover,
+.skill-leaf:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.skill-branch:hover .skill-leaves {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .root-branches {
+    flex-direction: column;
+  }
+
+  .skill-branch {
+    width: 100%;
+  }
+
+  .skill-leaves {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Root Tree Visualization */
+.skills-tree {
+  min-height: 800px;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+  background: #f8f9fa;
+}
+
+.tree-container {
+  display: flex;
+  justify-content: center;
+  transform: rotate(180deg); /* Flip tree upside down for root effect */
+  padding-top: 60px;
+}
+
+.skill-root {
+  position: relative;
+  padding-top: 40px;
+}
+
+.root-node {
+  background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+  color: #fff;
+  padding: 20px 40px;
+  border-radius: 40px;
+  font-size: 24px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+.root-branches {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  margin-top: 40px;
+  position: relative;
+  padding-top: 60px;
+}
+
+.root-branches::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  width: 2px;
+  height: 40px;
+  background: #3a3a3a;
+  transform: translateX(-50%);
+}
+
+.root-branches::before,
+.root-branches::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 2px;
+  height: 60px;
+  background: #3a3a3a;
+  transform-origin: top;
+  animation: growVein 1.5s ease-out forwards;
+}
+
+.root-branches::before {
+  left: 33%;
+  transform: rotate(-15deg);
+}
+
+.root-branches::after {
+  right: 33%;
+  transform: rotate(15deg);
+}
+
+.skill-branch {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: rotate(180deg); /* Flip content back to readable orientation */
+  padding-top: 40px;
+  flex: 1;
+}
+
+.skill-branch::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  width: 2px;
+  height: 40px;
+  background: #3a3a3a;
+  transform: translateX(-50%);
+}
+
+.skill-branch::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 40px;
+  background: #3a3a3a;
+  transform-origin: top;
+  animation: growVein 1s ease-out forwards;
+}
+
+.skill-branch:nth-child(1)::before {
+  transform: rotate(-10deg);
+}
+
+.skill-branch:nth-child(3)::before {
+  transform: rotate(10deg);
+}
+
+.branch-node {
+  background: linear-gradient(45deg, #2a2a2a, #3a3a3a);
+  color: #fff;
+  padding: 15px 30px;
+  border-radius: 30px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 30px;
+  z-index: 1;
+}
+
+.skill-leaves {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.skill-leaf {
+  background: #4a4a4a;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  position: relative;
+}
+
+.skill-leaf::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 2px;
+  height: 10px;
+  background: #4a4a4a;
+  transform: translateX(-50%);
+}
+
+.skill-leaf::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 2px;
+  height: 10px;
+  background: #4a4a4a;
+  transform-origin: bottom;
+  animation: growVein 0.5s ease-out forwards;
+}
+
+.skill-leaf::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: #3a3a3a;
+  top: 50%;
+  left: -100%;
+  transform: scaleX(0);
+  transform-origin: right;
+  animation: growLine 0.5s ease-out forwards;
+  opacity: 0.2;
+}
+
+.skill-leaf:nth-child(even)::after {
+  left: 100%;
+  transform-origin: left;
+}
+
+/* Hover Effects */
+.root-node:hover,
+.branch-node:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.skill-branch:hover .skill-leaves {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skill-leaf:hover {
+  transform: scale(1.1);
+  background: #5a5a5a;
+}
+
+/* Add organic curves */
+.root-branches::after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #3a3a3a;
+  transform: scaleX(0.8);
+}
+
+/* Add animation */
+@keyframes rootGrow {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+.skill-branch::before {
+  animation: rootGrow 1s ease-out forwards;
+  transform-origin: top;
+}
+
+/* Enhanced hover effects */
+.root-node:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.skill-branch:hover .skill-leaves {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skill-leaf:hover {
+  transform: scale(1.1);
+  background: #5a5a5a;
+}
+
+/* Add subtle branch movement */
+.skill-branch {
+  animation: sway 8s ease-in-out infinite;
+}
+
+.skill-branch:nth-child(2) {
+  animation-delay: -2s;
+}
+
+.skill-branch:nth-child(3) {
+  animation-delay: -4s;
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(180deg);
+  }
+  50% {
+    transform: rotate(182deg);
+  }
+}
+
+/* Enhanced Root Connections */
+.root-branches {
+  position: relative;
+}
+
+.root-branches::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background: repeating-linear-gradient(
+      45deg,
+      transparent 0,
+      transparent 48%,
+      #3a3a3a 48%,
+      #3a3a3a 52%,
+      transparent 52%,
+      transparent 100%
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent 0,
+      transparent 48%,
+      #3a3a3a 48%,
+      #3a3a3a 52%,
+      transparent 52%,
+      transparent 100%
+    );
+  background-size: 40px 40px;
+  opacity: 0.1;
+  animation: rootFlow 3s linear infinite;
+}
+
+.skill-leaves {
+  position: relative;
+}
+
+.skill-leaves::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  background: linear-gradient(90deg, #3a3a3a 1px, transparent 1px) 0 0,
+    linear-gradient(0deg, #3a3a3a 1px, transparent 1px) 0 0;
+  background-size: 20px 20px;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.skill-leaf::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: #3a3a3a;
+  top: 50%;
+  left: -100%;
+  transform: scaleX(0);
+  transform-origin: right;
+  animation: growLine 0.5s ease-out forwards;
+  opacity: 0.2;
+}
+
+.skill-leaf:nth-child(even)::after {
+  left: 100%;
+  transform-origin: left;
+}
+
+@keyframes rootFlow {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 40px 40px;
+  }
+}
+
+@keyframes growLine {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.skill-branch::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #3a3a3a;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.2;
+}
+
+.root-branches::after {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  border: 2px solid #3a3a3a;
+  border-bottom: none;
+  border-radius: 100% 100% 0 0;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.skill-branch:hover .skill-leaves::after {
+  opacity: 0.2;
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}
+
+.skill-branch:hover::after {
+  opacity: 0.4;
+  transform: translateX(-50%) scale(1.5);
+  transition: all 0.3s ease;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateX(-50%) scale(1.5);
+    opacity: 0.4;
+  }
+}
+
+.skill-branch::after {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+  .root-branches::before,
+  .root-branches::after {
+    opacity: 0.05;
+  }
+
+  .skill-leaves::after {
+    width: 90%;
+    left: 5%;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .root-branches {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .root-branches::before,
+  .root-branches::after {
+    height: 100%;
+    width: 2px;
+  }
+
+  .skill-branch {
+    width: 100%;
+  }
+
+  .skill-leaves {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* teams section styling */
 .teams .title::after {
   content: "who with me";

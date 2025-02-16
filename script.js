@@ -375,3 +375,46 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Skills Tree Interaction
+document.addEventListener('DOMContentLoaded', function() {
+    const branches = document.querySelectorAll('.skill-branch');
+    const leaves = document.querySelectorAll('.skill-leaf');
+    
+    // Add animation to branches on scroll
+    const animateBranches = () => {
+        branches.forEach(branch => {
+            const branchPosition = branch.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.3;
+            
+            if(branchPosition < screenPosition) {
+                branch.style.opacity = '1';
+                branch.style.transform = 'translateY(0)';
+            }
+        });
+    };
+
+    // Initialize branch positions
+    branches.forEach(branch => {
+        branch.style.opacity = '0';
+        branch.style.transform = 'translateY(20px)';
+        branch.style.transition = 'all 0.5s ease';
+    });
+
+    // Add hover effect for leaves
+    leaves.forEach(leaf => {
+        leaf.addEventListener('mouseover', () => {
+            leaf.style.transform = 'scale(1.1) rotate(5deg)';
+        });
+        
+        leaf.addEventListener('mouseout', () => {
+            leaf.style.transform = 'scale(1) rotate(0deg)';
+        });
+    });
+
+    // Listen for scroll events
+    window.addEventListener('scroll', animateBranches);
+    
+    // Initial animation check
+    animateBranches();
+});
+

@@ -1,0 +1,36 @@
+The Contact Section is currently basic and needs to be more modern, structured, and visually appealing.
+
+⚡ Requirements for the new design:
+
+Use semantic HTML for better accessibility and SEO.
+Implement modern CSS styles for a clean and professional look.
+Use flexbox or grid for better layout structuring.
+Add smooth animations for input fields and buttons.
+Improve the form design, making it more interactive and engaging.
+Ensure mobile responsiveness for all screen sizes.
+Add placeholder icons inside input fields (e.g., user icon in name field).
+Include a functional email link instead of a disabled feature.
+💻 Generate the following:
+
+HTML structure:
+
+A clean and well-structured contact form.
+Proper labels for accessibility.
+Interactive placeholders inside the fields.
+CSS styles:
+
+Modern UI with soft shadows, rounded corners, and smooth transitions.
+Responsive design with better spacing and alignment.
+Hover effects on form elements and the submit button.
+JavaScript functionality:
+
+Validate the email field before submission.
+Prevent empty messages from being sent.
+Add a confirmation message after successful submission.
+📌 Key Features:
+✅ Fully responsive design with mobile-first approach.
+✅ Smooth animations for form fields.
+✅ Better structure using flexbox or grid.
+✅ Accessible and SEO-friendly HTML.
+✅ Email validation and interactive UI.
+
