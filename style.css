@@ -96,12 +96,13 @@
 .projects-grid {
   display: flex;
   gap: 2rem;
-  padding: 2rem 1.5rem;
+  padding: 2rem 15px;
   overflow-x: auto;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  margin: 0 -15px;
 }
 
 .project-card {
@@ -252,31 +253,27 @@
   position: absolute;
   width: 100%;
   top: 50%;
+  left: 0;
   transform: translateY(-50%);
   pointer-events: none;
-  margin-top: 0;
-  padding: 0;
   z-index: 10;
+  padding: 0 15px;
 }
 
 .nav-arrow {
-  background: rgba(255, 255, 255, 0.9);
-  color: white;
-  border: none;
-  width: 60px;
-  height: 60px;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: white;
   border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   cursor: pointer;
-  transition: all 0.4s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 32px rgba(37, 99, 235, 0.15);
-  backdrop-filter: blur(8px);
   pointer-events: auto;
-  position: absolute;
-  border: 2px solid rgba(37, 99, 235, 0.1);
-  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(37, 99, 235, 0.2);
 }
 
 .nav-arrow i {
@@ -314,11 +311,11 @@
 }
 
 .nav-arrow.prev {
-  left: -30px;
+  left: 0;
 }
 
 .nav-arrow.next {
-  right: -30px;
+  right: 0;
 }
 
 /* Add pulse animation */
@@ -360,8 +357,8 @@
 /* Mobile adjustments */
 @media (max-width: 768px) {
   .nav-arrow {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
   }
 
   .nav-arrow i {
@@ -591,12 +588,16 @@
 
 section {
   padding: 100px 0;
-  /* height: 100vh; */
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
 }
 .max-width {
   max-width: 1300px;
-  padding: 0 20px;
-  margin: auto;
+  width: 100%;
+  padding: 0 50px;
+  margin: 0 auto;
+  position: relative;
 }
 .about,
 .services,
@@ -1153,111 +1154,189 @@ section .title::after {
 
 /* Skills Tree Styles */
 .skills-tree {
+  min-height: 700px;
+  padding: 40px 20px;
+  background: #0a0a1a;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Circuit board background effect */
+.skills-tree::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  min-height: 600px;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 100%;
+  background: linear-gradient(
+        90deg,
+        rgba(37, 99, 235, 0.1) 1px,
+        transparent 1px
+      )
+      0 0,
+    linear-gradient(rgba(37, 99, 235, 0.1) 1px, transparent 1px) 0 0;
+  background-size: 20px 20px;
+  animation: gridFlow 20s linear infinite;
 }
 
 .tree-container {
-  width: 100%;
+  position: relative;
   max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.skill-root {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
-}
-
+/* Core node styling */
 .root-node {
-  background: #2a2a2a;
+  background: linear-gradient(45deg, #1a1a3a, #2a2a5a);
   color: #fff;
-  padding: 20px 40px;
-  border-radius: 30px;
+  padding: 25px 50px;
+  border-radius: 8px;
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
   font-size: 24px;
-  position: relative;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.2);
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  z-index: 2;
 }
 
+/* Glowing effect */
+.root-node::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, #2563eb, #1e40af);
+  border-radius: 10px;
+  z-index: -1;
+  opacity: 0.5;
+  filter: blur(8px);
+}
+
+/* Skills branch layout */
 .root-branches {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 60px;
   position: relative;
 }
 
+/* Circuit connections */
+.root-branches::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  width: 2px;
+  height: 40px;
+  background: linear-gradient(to bottom, #2563eb, rgba(37, 99, 235, 0.3));
+  animation: pulseGlow 2s infinite;
+}
+
+/* Branch styling */
 .skill-branch {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
+  background: rgba(26, 26, 58, 0.8);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  border-radius: 8px;
+  padding: 20px;
   position: relative;
+  transition: all 0.3s ease;
 }
 
+/* Branch header */
 .branch-node {
-  background: #3a3a3a;
   color: #fff;
-  padding: 15px 30px;
-  border-radius: 25px;
   font-size: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: rgba(37, 99, 235, 0.1);
+  border-radius: 4px;
+  text-align: center;
+  border-bottom: 2px solid #2563eb;
 }
 
+/* Skills grid */
 .skill-leaves {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 15px;
-  opacity: 0;
-  transform: translateY(-20px);
+  opacity: 0.7;
   transition: all 0.3s ease;
-  position: relative;
 }
 
+/* Individual skill items */
 .skill-leaf {
-  background: #4a4a4a;
+  background: rgba(37, 99, 235, 0.1);
   color: #fff;
-  padding: 10px 20px;
-  border-radius: 20px;
-  font-size: 16px;
-  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 4px;
+  text-align: center;
+  position: relative;
   transition: all 0.3s ease;
+  border: 1px solid rgba(37, 99, 235, 0.2);
 }
 
-/* Hover Effects */
-.root-node:hover,
-.branch-node:hover,
-.skill-leaf:hover {
-  transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+/* Connecting lines effect */
+.skill-leaf::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 2px;
+  height: 10px;
+  background: linear-gradient(to bottom, #2563eb, transparent);
+  transform: translateX(-50%);
+}
+
+/* Hover effects */
+.skill-branch:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(37, 99, 235, 0.2);
+  background: rgba(26, 26, 58, 0.95);
 }
 
 .skill-branch:hover .skill-leaves {
   opacity: 1;
-  transform: translateY(0);
 }
 
-/* Responsive Design */
+.skill-leaf:hover {
+  background: rgba(37, 99, 235, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 10px rgba(37, 99, 235, 0.2);
+}
+
+/* Animations */
+@keyframes gridFlow {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 40px 40px;
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .root-branches {
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    gap: 30px;
   }
 
   .skill-branch {
-    width: 100%;
-  }
-
-  .skill-leaves {
-    width: 100%;
-    justify-content: center;
+    margin: 0 auto;
+    max-width: 400px;
   }
 }
 
@@ -1716,655 +1795,224 @@ section .title::after {
   }
 }
 
-/* teams section styling */
-.teams .title::after {
-  content: "who with me";
-}
-.teams .carousel .card {
-  background: #222;
-  border-radius: 6px;
-  padding: 25px 35px;
-  text-align: center;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-.teams .carousel .card:hover {
-  background: crimson;
-}
-.teams .carousel .card .box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-}
-.teams .carousel .card:hover .box {
-  transform: scale(1.05);
-}
-.teams .carousel .card .text {
-  font-size: 25px;
-  font-weight: 500;
-  margin: 10px 0 7px 0;
-}
-.teams .carousel .card img {
-  height: 150px;
-  width: 150px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 5px solid crimson;
-  transition: all 0.3s ease;
-}
-.teams .carousel .card:hover img {
-  border-color: #fff;
-}
-.owl-dots {
-  text-align: center;
-  margin-top: 20px;
-}
-.owl-dot {
-  height: 13px;
-  width: 13px;
-  margin: 0 5px;
-  outline: none !important;
-  border-radius: 50%;
-  border: 2px solid crimson !important;
-  transition: all 0.3s ease;
-}
-.owl-dot.active {
-  width: 35px;
-  border-radius: 14px;
-}
-.owl-dot.active,
-.owl-dot:hover {
-  background: crimson !important;
-}
-
-/*-------------------------
-  contact section styling 
-  -------------------------*/
-.contact .title::after {
-  content: "get in touch";
-}
-.contact .contact-content .column {
-  width: calc(50% - 30px);
-}
-.contact .contact-content .text {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-.contact .contact-content .left p {
-  text-align: justify;
-}
-.contact .contact-content .left .icons {
-  margin: 10px 0;
-}
-.contact .contact-content .row {
-  display: flex;
-  height: 65px;
-  align-items: center;
-}
-.contact .contact-content .row .info {
-  margin-left: 30px;
-}
-.contact .contact-content .row i {
-  font-size: 25px;
-  color: crimson;
-}
-.contact .contact-content .info .head {
-  font-weight: 500;
-}
-.contact .contact-content .info .sub-title {
-  color: #333;
-}
-.contact .right form .fields {
-  display: flex;
-}
-.contact .right form .field,
-.contact .right form .fields .field {
-  height: 45px;
-  width: 100%;
-  margin-bottom: 15px;
-}
-.contact .right form .textarea {
-  height: 80px;
-  width: 100%;
-}
-.contact .right form .name {
-  margin-right: 10px;
-}
-.contact .right form .field input,
-.contact .right form .textarea textarea {
-  height: 100%;
-  width: 100%;
-  border: 1px solid lightgrey;
-  border-radius: 6px;
-  outline: none;
-  padding: 0 15px;
-  font-size: 17px;
-  font-family: "Poppins", sans-serif;
-  transition: all 0.3s ease;
-}
-.contact .right form .field input:focus,
-.contact .right form .textarea textarea:focus {
-  border-color: #b3b3b3;
-}
-.contact .right form .textarea textarea {
-  padding-top: 10px;
-  resize: none;
-}
-.contact .right form .button-area {
-  display: flex;
-  align-items: center;
-}
-.right form .button-area button {
-  color: #fff;
-  display: block;
-  width: 160px !important;
-  height: 45px;
-  outline: none;
-  font-size: 18px;
-  font-weight: 500;
-  border-radius: 6px;
-  cursor: pointer;
-  flex-wrap: nowrap;
-  background: crimson;
-  border: 2px solid crimson;
-  transition: all 0.3s ease;
-}
-.right form .button-area button:hover {
-  color: crimson;
-  background: none;
-}
-
-.social-media {
-  text-align: center;
-  margin-top: 70px;
-}
-.social-media button {
-  font-size: 3rem;
-  padding: 10px 20px;
-  color: black;
-  background-color: white;
-  border: none;
-  border-radius: 20px;
-  transition: all 0.4s ease;
-}
-.social-media button:hover {
-  background-color: crimson;
-  color: white;
-}
-
-/*----------------------------
-    footer section styling 
-------------------------------*/
-footer {
-  background: #111;
-  padding: 15px 23px;
-  color: #fff;
-  text-align: center;
-}
-footer span a {
-  color: crimson;
-  text-decoration: none;
-}
-footer span a:hover {
-  text-decoration: underline;
-}
-
-/* Responsive media query start*/
-
-/* responsive media query start */
-@media screen and (max-width: 1390px) {
-  .max-width {
-    max-width: 1260px;
-    padding: 0 76px;
-    margin: auto;
-  }
-  .Onscreen-link {
-    left: 2.5%;
-  }
-  .home .home-content .text-1 {
-    font-size: 30px;
-  }
-  .home .home-content .text-2 {
-    font-size: 57px;
-  }
-  .home .home-content .text-3 {
-    font-size: 37px;
-  }
-
-  .home .home-content .text-3 span {
-    font-size: 40px;
-  }
-}
-
-@media (max-width: 1104px) {
-  .about .about-content .left img {
-    height: 350px;
-    width: 350px;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .max-width {
-    max-width: 1300px;
-    padding: 0 76px;
-    margin: auto;
-  }
-
-  .Onscreen-link {
-    left: 2.5%;
-  }
-  .Onscreen-link .btn {
-    font-size: 1.8rem;
-    width: 40px;
-    height: 40px;
-  }
-
-  .home .home-content .text-1 {
-    font-size: 25px;
-  }
-  .home .home-content .text-2 {
-    font-size: 50px;
-  }
-  .home .home-content .text-3 {
-    font-size: 27px;
-  }
-
-  .home .home-content .text-3 span {
-    font-size: 35px;
-  }
-}
-
-@media (max-width: 991px) {
-  .max-width {
-    padding: 0 80px;
-  }
-
-  .home .home-content .text-2 {
-    font-size: 50px;
-  }
-  .home .home-content .text-3 {
-    font-size: 30px;
-  }
-  .home .home-content .text-3 span {
-    font-size: 40px;
-  }
-}
-@media (max-width: 947px) {
-  .menu-btn {
-    display: block;
-    z-index: 999;
-  }
-  .menu-btn i.active:before {
-    content: "\f00d";
-  }
-  .navbar .menu {
-    position: fixed;
-    height: 100vh;
-    width: 100%;
-    left: -100%;
-    top: 0;
-    background: #111;
-    text-align: center;
-    padding-top: 80px;
-    transition: all 0.3s ease;
-  }
-  .navbar .menu.active {
-    left: 0;
-  }
-  .navbar .menu li {
-    display: block;
-  }
-  .navbar .menu li a {
-    display: inline-block;
-    margin: 20px 0;
-    font-size: 25px;
-  }
-
-  .Onscreen-link {
-    left: 3.5%;
-  }
-  .home {
-    background-position-x: 35%;
-  }
-
-  .home .home-content .text-2 {
-    font-size: 55px;
-  }
-  .home .home-content .text-3 {
-    font-size: 30px;
-  }
-  .home .home-content .text-3 span {
-    font-size: 45px;
-  }
-  .home .home-content a {
-    font-size: 23px;
-    padding: 10px 30px;
-  }
-  .max-width {
-    max-width: 930px;
-  }
-  .about .about-content .column {
-    width: 100%;
-  }
-  .about .about-content .left {
-    display: flex;
-    justify-content: center;
-    margin: 0 auto 60px;
-  }
-  .about .about-content .right {
-    flex: 100%;
-  }
-  .services .serv-content .card {
-    width: calc(50% - 10px);
-    margin-bottom: 20px;
-  }
-  .skills .skills-content .column,
-  .contact .contact-content .column {
-    width: 100%;
-    margin-bottom: 35px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .home {
-    background-position-x: 53%;
-  }
-  .home .home-content .text-1 {
-    font-size: 25px;
-  }
-  .home .home-content .text-2 {
-    font-size: 46.8px;
-  }
-  .home .home-content .text-3 {
-    font-size: 28px;
-  }
-  .home .home-content .text-3 span {
-    font-size: 40px;
-  }
-
-  .projects-grid {
-    padding: 1rem;
-  }
-
-  .project-card {
-    min-width: 280px;
-  }
-}
-
-@media (max-width: 690px) {
-  .max-width {
-    padding: 0 65px;
-  }
-
-  .home {
-    background-position-x: 45%;
-  }
-  .home .home-content .text-1 {
-    font-size: 25px;
-  }
-  .home .home-content .text-2 {
-    font-size: 45px;
-  }
-  .home .home-content .text-3 {
-    font-size: 27px;
-  }
-
-  .home .home-content .text-3 span {
-    font-size: 35px;
-  }
-  .home .home-content a {
-    font-size: 20px;
-  }
-  .services .serv-content .card {
-    width: 100%;
-  }
-}
-
-@media (max-width: 500px) {
-  .max-width {
-    max-width: 0 5px;
-  }
-  .Onscreen-link {
-    left: 95%;
-  }
-  .Onscreen-link .btn {
-    width: 35px;
-    height: 35px;
-    font-size: 1.6rem;
-    background: none;
-  }
-
-  .home {
-    background-position-x: 60%;
-  }
-  .home-content {
-    margin-top: -20px;
-  }
-  .home .home-content .text-1 {
-    font-size: 20px;
-  }
-
-  .home .home-content .text-2 {
-    font-size: 30px;
-  }
-  .home .home-content .text-3 {
-    font-size: 20px;
-  }
-  .home .home-content .text-3 span {
-    font-size: 29px;
-  }
-  .about .about-content .right .text,
-  .skills .skills-content .left .text {
-    font-size: 19px;
-  }
-  .contact .right form .fields {
-    flex-direction: column;
-  }
-  .contact .right form .name,
-  .contact .right form .email {
-    margin: 0;
-  }
-  .right form .error-box {
-    width: 150px;
-  }
-  .social-media button {
-    font-size: 2rem;
-    padding: 5px 10px;
-    color: black;
-    background-color: white;
-    border: none;
-    border-radius: 15px;
-    transition: all 0.4s ease;
-  }
-  .scroll-up-btn {
-    right: 15px;
-    bottom: 15px;
-    height: 38px;
-    width: 35px;
-    font-size: 23px;
-    line-height: 38px;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .home {
-    background-position-x: 70%;
-  }
-  .home .home-content .text-1 {
-    font-size: 18px;
-  }
-
-  .home .home-content .text-2 {
-    font-size: 29.1px;
-  }
-  .home .home-content .text-3 {
-    font-size: 18px;
-  }
-  .home .home-content .text-3 span {
-    font-size: 25px;
-  }
-}
-
-.typed-cursor {
-  opacity: 1;
-  animation: blink 0.7s infinite;
-}
-
-@keyframes blink {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@media (min-width: 1400px) {
-  .project-card {
-    width: 450px; /* Larger for big screens */
-  }
-}
-
-@media (max-width: 768px) {
-  .project-card {
-    width: 340px; /* Slightly wider mobile cards */
-  }
-}
-
-/* Add container position context */
-.projects-section .max-width {
+/* Natural Root/Vein Visualization */
+.skills-tree {
+  min-height: 800px;
+  padding: 40px 20px;
   position: relative;
-  padding: 0 40px;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #f8f9fa, #f0f2f5);
 }
 
-/* Modal Container */
-.modal-container {
-  display: none;
-  position: fixed;
+.tree-container {
+  display: flex;
+  justify-content: center;
+  transform: rotate(180deg);
+  padding: 60px 20px;
+}
+
+/* Core/Root Node */
+.root-node {
+  background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+  color: #fff;
+  padding: 20px 40px;
+  border-radius: 30px;
+  position: relative;
+  z-index: 3;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Organic Branches */
+.root-branches {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 80px;
+  position: relative;
+  gap: 40px;
+}
+
+/* Create organic vein connections using SVG paths */
+.root-branches::before {
+  content: "";
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(5px);
-  z-index: 1000;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  align-items: center;
-  justify-content: center;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cpath d='M50,0 C30,30 70,50 50,100' stroke='rgba(58,58,58,0.2)' fill='none' stroke-width='2' /%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Branch Styling */
+.skill-branch {
+  position: relative;
+  transform: rotate(180deg);
   padding: 20px;
+  flex: 1;
 }
 
-.modal-container.active {
-  opacity: 1;
-}
-
-/* Project Modal */
-.project-modal {
-  display: none;
-  background: var(--background);
-  width: clamp(300px, 90%, 800px);
-  max-height: 85vh;
-  margin: 20px;
-  border-radius: 15px;
-  padding: 2rem;
-  overflow-y: auto;
-  position: relative;
-  opacity: 0;
-  transform: translateY(-20px);
-  transition: all 0.3s ease;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-}
-
-.project-modal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Modal Close Button */
-.close-modal {
+/* Create irregular connecting lines */
+.skill-branch::before {
+  content: "";
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  width: 40px;
+  top: -40px;
+  left: 50%;
+  width: 2px;
   height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-light);
-  transition: all 0.3s ease;
+  background: #3a3a3a;
+  transform-origin: bottom;
+  transform: translateX(-50%) rotate(calc(var(--random-angle) * 1deg));
+  opacity: 0.3;
+  filter: blur(0.5px);
 }
 
-.close-modal:hover {
-  background: rgba(0, 0, 0, 0.1);
-  color: var(--primary-color);
-  transform: rotate(90deg);
+.skill-branch:nth-child(1)::before {
+  --random-angle: -15;
+  height: 50px;
 }
 
-/* Modal Content Styles */
-.modal-header {
-  display: grid;
-  gap: 1rem;
-  margin-bottom: 2rem;
+.skill-branch:nth-child(2)::before {
+  --random-angle: 5;
+  height: 45px;
 }
 
-.modal-header h2 {
-  color: var(--primary-color);
-  font-size: 1.8rem;
-  line-height: 1.3;
+.skill-branch:nth-child(3)::before {
+  --random-angle: 10;
+  height: 55px;
 }
 
-.project-meta {
-  display: flex;
-  gap: 1.5rem;
-  color: var(--text-light);
-}
-
-.project-meta span {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.project-info h3 {
-  color: var(--text-color);
-  margin: 1.5rem 0 1rem;
-}
-
-.project-info p {
-  color: var(--text-light);
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-.project-info ul {
-  list-style: none;
-  padding: 0;
-}
-
-.project-info li {
-  padding-left: 1.5rem;
+/* Organic branch nodes */
+.branch-node {
+  background: linear-gradient(45deg, #2a2a2a, #3a3a3a);
+  color: #fff;
+  padding: 15px 30px;
+  border-radius: 25px;
   position: relative;
-  margin-bottom: 0.5rem;
-  color: var(--text-light);
+  z-index: 2;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
-.project-info li::before {
-  content: "→";
+/* Skill leaves with organic connections */
+.skill-leaves {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 30px 15px;
+  position: relative;
+}
+
+/* Create meandering connections */
+.skill-leaves::before {
+  content: "";
   position: absolute;
+  top: 0;
   left: 0;
-  color: var(--primary-color);
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cpath d='M0,50 C20,30 80,70 100,50' stroke='rgba(58,58,58,0.1)' fill='none' stroke-width='1' /%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Individual skill leaves */
+.skill-leaf {
+  background: #4a4a4a;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Organic connecting veins */
+.skill-leaf::before,
+.skill-leaf::after {
+  content: "";
+  position: absolute;
+  background: #4a4a4a;
+  opacity: 0.2;
+}
+
+.skill-leaf::before {
+  width: 2px;
+  height: 15px;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%) rotate(calc(var(--random-angle) * 1deg));
+}
+
+.skill-leaf::after {
+  width: 40px;
+  height: 1px;
+  top: 50%;
+  right: -40px;
+  transform-origin: left;
+  transform: scaleX(0.8) rotate(calc(var(--random-curve) * 1deg));
+}
+
+/* Random variations for organic feel */
+.skill-leaf:nth-child(1) {
+  --random-angle: -5;
+  --random-curve: 10;
+}
+.skill-leaf:nth-child(2) {
+  --random-angle: 8;
+  --random-curve: -5;
+}
+.skill-leaf:nth-child(3) {
+  --random-angle: -10;
+  --random-curve: 15;
+}
+.skill-leaf:nth-child(4) {
+  --random-angle: 15;
+  --random-curve: -10;
+}
+
+/* Animate growth */
+@keyframes growVein {
+  from {
+    transform: scaleY(0) rotate(calc(var(--random-angle) * 1deg));
+    opacity: 0;
+  }
+  to {
+    transform: scaleY(1) rotate(calc(var(--random-angle) * 1deg));
+    opacity: 0.3;
+  }
+}
+
+/* Add subtle movement */
+@keyframes floatBranch {
+  0%,
+  100% {
+    transform: rotate(180deg) translateY(0);
+  }
+  50% {
+    transform: rotate(180deg) translateY(-3px);
+  }
+}
+
+.skill-branch {
+  animation: floatBranch 8s ease-in-out infinite;
+}
+
+.skill-branch:nth-child(2) {
+  animation-delay: -2s;
+}
+
+.skill-branch:nth-child(3) {
+  animation-delay: -4s;
+}
+
+/* Enhance hover effects */
+.skill-branch:hover .skill-leaf::before {
+  animation: growVein 0.5s ease-out forwards;
+}
+
+.skill-branch:hover .skill-leaves::before {
+  opacity: 0.3;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
 }
 
 /* Modern Animations */
