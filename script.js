@@ -163,6 +163,19 @@ function scrollToPrev() {
     });
 }
 
+// Project Navigation Functions
+function scrollToNext() {
+    const container = document.querySelector('.projects-grid');
+    const scrollAmount = container.offsetWidth * 0.8;
+    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+}
+
+function scrollToPrev() {
+    const container = document.querySelector('.projects-grid');
+    const scrollAmount = container.offsetWidth * 0.8;
+    container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+}
+
 // Replace ONLY the jQuery navbar code with this
 document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.querySelector('.navbar');

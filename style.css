@@ -91,6 +91,8 @@
 .projects-section {
   padding: 4rem 0;
   background: var(--surface-color);
+  position: relative;
+  padding-bottom: 6rem;
 }
 
 .projects-grid {
@@ -103,6 +105,7 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
   margin: 0 -15px;
+  margin-bottom: 2rem;
 }
 
 .project-card {
@@ -250,72 +253,83 @@
 }
 
 .project-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
   position: absolute;
-  width: 100%;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  pointer-events: none;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 10;
-  padding: 0 15px;
 }
 
 .nav-arrow {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  background: white;
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 2px solid var(--primary-color);
+  background: transparent;
   cursor: pointer;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  pointer-events: auto;
   transition: all 0.3s ease;
-  border: 1px solid rgba(37, 99, 235, 0.2);
-}
-
-.nav-arrow i {
-  font-size: 1.8rem;
-  color: var(--primary-color);
-  transition: all 0.4s ease;
-  position: relative;
-  z-index: 2;
-}
-
-.nav-arrow:hover i {
-  color: white;
+  overflow: hidden; /* Added to contain the expanding circle */
 }
 
 .nav-arrow::before {
   content: "";
   position: absolute;
-  width: 100%;
-  height: 100%;
+  inset: 0; /* Reset positioning */
   background: var(--primary-color);
-  transform: scale(0);
-  transition: transform 0.4s ease;
   border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.3s ease-out;
+  z-index: 1;
 }
 
 .nav-arrow:hover::before {
   transform: scale(1);
 }
 
-.nav-arrow:hover {
-  background: white;
-  transform: scale(1.1);
-  border-color: var(--primary-color);
+.nav-arrow i {
+  position: relative;
+  z-index: 2;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.nav-arrow:hover i {
   color: white;
 }
 
-.nav-arrow.prev {
-  left: 0;
+/* Add active state animation */
+.nav-arrow:active {
+  transform: scale(0.95);
 }
 
-.nav-arrow.next {
-  right: 0;
+/* Add subtle shadow */
+.nav-arrow:hover {
+  box-shadow: 0 6px 10px rgba(37, 99, 235, 0.2);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .project-navigation {
+    bottom: 1rem;
+  }
+
+  .nav-arrow {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .nav-arrow i {
+    font-size: 1rem;
+  }
 }
 
 /* Add pulse animation */
@@ -384,6 +398,13 @@
   scroll-snap-type: x mandatory;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  position: relative;
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 20px 0;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
 }
 
 .project-card {
@@ -1181,10 +1202,16 @@ section .title::after {
 }
 
 .tree-container {
+  display: flex;
+  justify-content: center;
+  transform: none; /* Remove the rotation */
+  padding-top: 60px;
+}
+
+.skill-root {
   position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  padding-top: 40px;
+  transform: none; /* Remove any inherited transforms */
 }
 
 /* Core node styling */
@@ -1200,6 +1227,7 @@ section .title::after {
   box-shadow: 0 0 20px rgba(37, 99, 235, 0.2);
   border: 1px solid rgba(37, 99, 235, 0.3);
   z-index: 2;
+  transform: none; /* Ensure no rotation */
 }
 
 /* Glowing effect */
@@ -1243,6 +1271,7 @@ section .title::after {
   padding: 20px;
   position: relative;
   transition: all 0.3s ease;
+  transform: none; /* Remove the 180deg rotation */
 }
 
 /* Branch header */
@@ -1352,26 +1381,27 @@ section .title::after {
 .tree-container {
   display: flex;
   justify-content: center;
-  transform: rotate(180deg); /* Flip tree upside down for root effect */
+  transform: none; /* Remove the rotation */
   padding-top: 60px;
 }
 
 .skill-root {
   position: relative;
   padding-top: 40px;
+  transform: none; /* Remove any inherited transforms */
 }
 
 .root-node {
   background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
   color: #fff;
   padding: 20px 40px;
-  border-radius: 40px;
-  font-size: 24px;
+  border-radius: 30px;
   position: relative;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   z-index: 2;
+  transform: none; /* Ensure no rotation */
 }
 
 .root-branches {
@@ -1421,7 +1451,7 @@ section .title::after {
   display: flex;
   flex-direction: column;
   align-items: center;
-  transform: rotate(180deg); /* Flip content back to readable orientation */
+  transform: none; /* Remove the 180deg rotation */
   padding-top: 40px;
   flex: 1;
 }
@@ -1609,10 +1639,10 @@ section .title::after {
 @keyframes sway {
   0%,
   100% {
-    transform: rotate(180deg);
+    transform: none;
   }
   50% {
-    transform: rotate(182deg);
+    transform: none;
   }
 }
 
@@ -1807,7 +1837,7 @@ section .title::after {
 .tree-container {
   display: flex;
   justify-content: center;
-  transform: rotate(180deg);
+  transform: none; /* Remove the rotation */
   padding: 60px 20px;
 }
 
@@ -1820,6 +1850,7 @@ section .title::after {
   position: relative;
   z-index: 3;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transform: none; /* Ensure no rotation */
 }
 
 /* Organic Branches */
@@ -1847,7 +1878,7 @@ section .title::after {
 /* Branch Styling */
 .skill-branch {
   position: relative;
-  transform: rotate(180deg);
+  transform: none; /* Remove the 180deg rotation */
   padding: 20px;
   flex: 1;
 }
@@ -1985,10 +2016,10 @@ section .title::after {
 @keyframes floatBranch {
   0%,
   100% {
-    transform: rotate(180deg) translateY(0);
+    transform: none;
   }
   50% {
-    transform: rotate(180deg) translateY(-3px);
+    transform: none;
   }
 }
 
