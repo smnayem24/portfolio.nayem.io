@@ -1,0 +1,94 @@
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Simple semi-transparent background without any blur */
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    /* Remove all blur-related properties */
+}
+
+.modal-window {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Solid white background */
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    z-index: 10000;
+    /* Simple shadow */
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modal-window.active {
+    display: block;
+    animation: modalFadeIn 0.3s ease;
+}
+
+.modal-overlay.active {
+    display: block;
+}
+
+.project-details {
+    padding: 20px 0;
+    color: var(--text-color, #333);
+}
+
+.project-details h2 {
+    margin-bottom: 20px;
+    color: #2563eb;
+}
+
+.project-content {
+    line-height: 1.6;
+}
+
+/* Clean scrollbar */
+.modal-window::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-window::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.modal-window::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+@keyframes modalFadeIn {
+    from { 
+        opacity: 0; 
+        transform: translate(-50%, -45%);
+    }
+    to { 
+        opacity: 1; 
+        transform: translate(-50%, -50%);
+    }
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    background: rgba(0, 0, 0, 0.2);
+    transform: rotate(90deg);
+}
