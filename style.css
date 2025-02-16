@@ -2352,12 +2352,23 @@ section .title::after {
   justify-content: center;
   align-items: center;
   background: var(--surface-color);
+  overflow: hidden; /* Contain the orbital movement */
 }
 
-/* Core Node */
+.orbital-skills {
+  position: relative;
+  width: 600px; /* Reduced from 800px for better containment */
+  height: 600px; /* Reduced from 800px for better containment */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+/* Core node stays in center */
 .core-node {
-  width: 150px;
-  height: 150px;
+  width: 100px; /* Reduced size */
+  height: 100px; /* Reduced size */
   background: linear-gradient(135deg, #2563eb, #1e40af);
   color: #fff;
   border-radius: 50%;
@@ -2365,91 +2376,101 @@ section .title::after {
   align-items: center;
   justify-content: center;
   position: absolute;
-  z-index: 10;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   font-weight: 500;
   box-shadow: 0 0 30px rgba(37, 99, 235, 0.3);
   border: 2px solid rgba(255, 255, 255, 0.2);
+  z-index: 10;
 }
 
-/* Orbital Skills */
-.orbital-skills {
-  position: relative;
-  width: 800px;
-  height: 800px;
+/* Adjusted orbital rings for better visibility */
+.orbit-1 {
+  width: 200px;
+  height: 200px;
+}
+.orbit-2 {
+  width: 300px;
+  height: 300px;
+}
+.orbit-3 {
+  width: 400px;
+  height: 400px;
+}
+.orbit-4 {
+  width: 500px;
+  height: 500px;
 }
 
+/* Adjusted orbital animations with smaller radii */
+@keyframes orbit1 {
+  from {
+    transform: rotate(0deg) translateX(100px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(100px) rotate(-360deg);
+  }
+}
+
+@keyframes orbit2 {
+  from {
+    transform: rotate(0deg) translateX(150px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(150px) rotate(-360deg);
+  }
+}
+
+@keyframes orbit3 {
+  from {
+    transform: rotate(0deg) translateX(200px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(200px) rotate(-360deg);
+  }
+}
+
+@keyframes orbit4 {
+  from {
+    transform: rotate(0deg) translateX(250px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(250px) rotate(-360deg);
+  }
+}
+
+/* Adjusted timing for smoother movement */
+.orbit-1 .skill-item {
+  animation: orbit1 20s linear infinite;
+}
+.orbit-2 .skill-item {
+  animation: orbit2 25s linear infinite;
+}
+.orbit-3 .skill-item {
+  animation: orbit3 30s linear infinite;
+}
+.orbit-4 .skill-item {
+  animation: orbit4 35s linear infinite;
+}
+
+/* Make skill items more compact */
 .skill-item {
   position: absolute;
   background: rgba(37, 99, 235, 0.1);
   backdrop-filter: blur(5px);
-  padding: 12px 24px;
-  border-radius: 20px;
+  padding: 8px 16px; /* Reduced padding */
+  border-radius: 16px;
   color: var(--text-color);
-  font-size: 1rem;
+  font-size: 0.9rem; /* Slightly smaller font */
   white-space: nowrap;
-  transition: all 0.3s ease;
   border: 1px solid rgba(37, 99, 235, 0.2);
   cursor: pointer;
-  transform-origin: center;
+  transform-origin: 50% 50%;
+  transition: all 0.3s ease;
 }
 
-/* Position each skill item in a circular pattern */
-.skill-item:nth-child(1) {
-  left: 50%;
-  top: 0;
-  transform: translateX(-50%);
-}
-.skill-item:nth-child(2) {
-  right: 15%;
-  top: 15%;
-}
-.skill-item:nth-child(3) {
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-.skill-item:nth-child(4) {
-  right: 15%;
-  bottom: 15%;
-}
-.skill-item:nth-child(5) {
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-}
-.skill-item:nth-child(6) {
-  left: 15%;
-  bottom: 15%;
-}
-.skill-item:nth-child(7) {
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-.skill-item:nth-child(8) {
-  left: 15%;
-  top: 15%;
-}
-.skill-item:nth-child(9) {
-  left: 30%;
-  top: 25%;
-}
-.skill-item:nth-child(10) {
-  right: 30%;
-  top: 25%;
-}
-.skill-item:nth-child(11) {
-  right: 30%;
-  bottom: 25%;
-}
-.skill-item:nth-child(12) {
-  left: 30%;
-  bottom: 25%;
-}
-
+/* Improved hover effect that doesn't break the layout */
 .skill-item:hover {
-  transform: scale(1.1) translateY(-5px);
+  transform: scale(1.1);
   background: var(--primary-color);
   color: white;
   box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
@@ -2457,34 +2478,75 @@ section .title::after {
 }
 
 /* Responsive adjustments */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .orbital-skills {
-    width: 600px;
-    height: 600px;
+    width: 400px;
+    height: 400px;
   }
 
-  .core-node {
-    width: 120px;
-    height: 120px;
-    font-size: 1.2rem;
+  .orbit-1 {
+    width: 150px;
+    height: 150px;
   }
-}
-
-@media (max-width: 640px) {
-  .orbital-skills {
-    width: 300px;
-    height: 300px;
+  .orbit-2 {
+    width: 220px;
+    height: 220px;
+  }
+  .orbit-3 {
+    width: 290px;
+    height: 290px;
+  }
+  .orbit-4 {
+    width: 360px;
+    height: 360px;
   }
 
-  .core-node {
-    width: 100px;
-    height: 100px;
-    font-size: 1rem;
+  /* Adjust animation radii for mobile */
+  @keyframes orbit1 {
+    from {
+      transform: rotate(0deg) translateX(75px) rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg) translateX(75px) rotate(-360deg);
+    }
+  }
+
+  @keyframes orbit2 {
+    from {
+      transform: rotate(0deg) translateX(110px) rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg) translateX(110px) rotate(-360deg);
+    }
+  }
+
+  @keyframes orbit3 {
+    from {
+      transform: rotate(0deg) translateX(145px) rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg) translateX(145px) rotate(-360deg);
+    }
+  }
+
+  @keyframes orbit4 {
+    from {
+      transform: rotate(0deg) translateX(180px) rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg) translateX(180px) rotate(-360deg);
+    }
   }
 
   .skill-item {
     font-size: 0.8rem;
-    padding: 8px 16px;
+    padding: 6px 12px;
+  }
+
+  .core-node {
+    width: 80px;
+    height: 80px;
+    font-size: 1rem;
   }
 }
 
@@ -2499,20 +2561,23 @@ section .title::after {
   justify-content: center;
   align-items: center;
   background: var(--surface-color);
+  overflow: hidden;
 }
 
 .orbital-skills {
   position: relative;
-  width: 800px;
-  height: 800px;
+  width: 600px;
+  height: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
 }
 
+/* Core node */
 .core-node {
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   background: linear-gradient(135deg, #2563eb, #1e40af);
   color: #fff;
   border-radius: 50%;
@@ -2520,119 +2585,95 @@ section .title::after {
   align-items: center;
   justify-content: center;
   position: absolute;
-  z-index: 10;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   font-weight: 500;
   box-shadow: 0 0 30px rgba(37, 99, 235, 0.3);
   border: 2px solid rgba(255, 255, 255, 0.2);
-  animation: pulsate 2s ease-in-out infinite;
+  z-index: 10;
 }
 
-/* Create orbital paths */
+/* Orbital rings with initial positions */
 .orbit {
   position: absolute;
-  border: 1px dashed rgba(37, 99, 235, 0.2);
+  border: 1px dashed rgba(37, 99, 235, 0.15);
   border-radius: 50%;
-  animation: rotate 20s linear infinite;
 }
 
-/* Different sized orbits */
-.orbit:nth-child(1) {
+.orbit-1 {
   width: 200px;
   height: 200px;
-  animation-duration: 15s;
 }
-.orbit:nth-child(2) {
+
+.orbit-2 {
   width: 300px;
   height: 300px;
-  animation-duration: 20s;
 }
-.orbit:nth-child(3) {
+
+.orbit-3 {
   width: 400px;
   height: 400px;
-  animation-duration: 25s;
 }
-.orbit:nth-child(4) {
+
+.orbit-4 {
   width: 500px;
   height: 500px;
-  animation-duration: 30s;
 }
 
-.skill-item {
-  position: absolute;
-  background: rgba(37, 99, 235, 0.1);
-  backdrop-filter: blur(5px);
-  padding: 12px 24px;
-  border-radius: 20px;
-  color: var(--text-color);
-  font-size: 1rem;
-  white-space: nowrap;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(37, 99, 235, 0.2);
-  cursor: pointer;
-  transform-origin: center;
+/* Position skills with proper spacing */
+.orbit-1 .skill-item:nth-child(1) {
+  animation: orbit1 20s linear infinite;
+  animation-delay: -0s;
+}
+.orbit-1 .skill-item:nth-child(2) {
+  animation: orbit1 20s linear infinite;
+  animation-delay: -6.67s;
+}
+.orbit-1 .skill-item:nth-child(3) {
+  animation: orbit1 20s linear infinite;
+  animation-delay: -13.33s;
 }
 
-/* Assign skills to orbits and set their rotation */
-.skill-item:nth-child(2) {
-  animation: moveInOrbit1 15s linear infinite;
+.orbit-2 .skill-item:nth-child(1) {
+  animation: orbit2 25s linear infinite;
+  animation-delay: -0s;
 }
-.skill-item:nth-child(3) {
-  animation: moveInOrbit1 15s linear infinite;
-  animation-delay: -7.5s;
+.orbit-2 .skill-item:nth-child(2) {
+  animation: orbit2 25s linear infinite;
+  animation-delay: -8.33s;
 }
-.skill-item:nth-child(4) {
-  animation: moveInOrbit1 15s linear infinite;
-  animation-delay: -3.75s;
+.orbit-2 .skill-item:nth-child(3) {
+  animation: orbit2 25s linear infinite;
+  animation-delay: -16.67s;
 }
 
-.skill-item:nth-child(5) {
-  animation: moveInOrbit2 20s linear infinite;
+.orbit-3 .skill-item:nth-child(1) {
+  animation: orbit3 30s linear infinite;
+  animation-delay: -0s;
 }
-.skill-item:nth-child(6) {
-  animation: moveInOrbit2 20s linear infinite;
+.orbit-3 .skill-item:nth-child(2) {
+  animation: orbit3 30s linear infinite;
   animation-delay: -10s;
 }
-.skill-item:nth-child(7) {
-  animation: moveInOrbit2 20s linear infinite;
-  animation-delay: -5s;
+.orbit-3 .skill-item:nth-child(3) {
+  animation: orbit3 30s linear infinite;
+  animation-delay: -20s;
 }
 
-.skill-item:nth-child(8) {
-  animation: moveInOrbit3 25s linear infinite;
+.orbit-4 .skill-item:nth-child(1) {
+  animation: orbit4 35s linear infinite;
+  animation-delay: -0s;
 }
-.skill-item:nth-child(9) {
-  animation: moveInOrbit3 25s linear infinite;
-  animation-delay: -12.5s;
+.orbit-4 .skill-item:nth-child(2) {
+  animation: orbit4 35s linear infinite;
+  animation-delay: -11.67s;
 }
-.skill-item:nth-child(10) {
-  animation: moveInOrbit3 25s linear infinite;
-  animation-delay: -6.25s;
-}
-
-.skill-item:nth-child(11) {
-  animation: moveInOrbit4 30s linear infinite;
-}
-.skill-item:nth-child(12) {
-  animation: moveInOrbit4 30s linear infinite;
-  animation-delay: -15s;
-}
-.skill-item:nth-child(13) {
-  animation: moveInOrbit4 30s linear infinite;
-  animation-delay: -7.5s;
+.orbit-4 .skill-item:nth-child(3) {
+  animation: orbit4 35s linear infinite;
+  animation-delay: -23.33s;
 }
 
-.skill-item:hover {
-  transform: scale(1.1);
-  background: var(--primary-color);
-  color: white;
-  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
-  z-index: 2;
-  animation-play-state: paused;
-}
-
-/* Define orbital animations */
-@keyframes moveInOrbit1 {
+/* Orbital animation keyframes */
+@keyframes orbit1 {
   from {
     transform: rotate(0deg) translateX(100px) rotate(0deg);
   }
@@ -2641,7 +2682,7 @@ section .title::after {
   }
 }
 
-@keyframes moveInOrbit2 {
+@keyframes orbit2 {
   from {
     transform: rotate(0deg) translateX(150px) rotate(0deg);
   }
@@ -2650,7 +2691,7 @@ section .title::after {
   }
 }
 
-@keyframes moveInOrbit3 {
+@keyframes orbit3 {
   from {
     transform: rotate(0deg) translateX(200px) rotate(0deg);
   }
@@ -2659,7 +2700,7 @@ section .title::after {
   }
 }
 
-@keyframes moveInOrbit4 {
+@keyframes orbit4 {
   from {
     transform: rotate(0deg) translateX(250px) rotate(0deg);
   }
@@ -2668,40 +2709,19 @@ section .title::after {
   }
 }
 
-@keyframes pulsate {
-  0%,
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 30px rgba(37, 99, 235, 0.3);
-  }
-  50% {
-    transform: scale(1.05);
-    box-shadow: 0 0 50px rgba(37, 99, 235, 0.5);
-  }
-}
-
-/* Responsive adjustments */
-@media (max-width: 900px) {
-  .orbital-skills {
-    transform: scale(0.8);
-  }
-}
-
-@media (max-width: 640px) {
-  .orbital-skills {
-    transform: scale(0.5);
-  }
-
-  .core-node {
-    width: 100px;
-    height: 100px;
-    font-size: 1rem;
-  }
-
-  .skill-item {
-    font-size: 0.8rem;
-    padding: 8px 16px;
-  }
+.skill-item {
+  position: absolute;
+  background: rgba(37, 99, 235, 0.1);
+  backdrop-filter: blur(5px);
+  padding: 8px 16px;
+  border-radius: 16px;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  white-space: nowrap;
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  cursor: pointer;
+  transform-origin: 50% 50%;
+  transition: all 0.3s ease;
 }
 
 /* ...existing code... */
