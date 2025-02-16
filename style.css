@@ -2725,3 +2725,529 @@ section .title::after {
 }
 
 /* ...existing code... */
+
+/* Orbital Skills Layout with Core-Centric Movements */
+.orbital-skills {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  transform-origin: center center;
+}
+
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px dashed rgba(37, 99, 235, 0.15);
+  border-radius: 50%;
+}
+
+/* Update orbit animations to be center-focused */
+@keyframes orbit1 {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes orbit2 {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes orbit3 {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes orbit4 {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Position skills items on orbits */
+.skill-item {
+  position: absolute;
+  transform-origin: center center;
+}
+
+/* First orbit items */
+.orbit-1 .skill-item:nth-child(1) {
+  transform: rotate(0deg) translateX(100px) rotate(0deg);
+}
+.orbit-1 .skill-item:nth-child(2) {
+  transform: rotate(120deg) translateX(100px) rotate(-120deg);
+}
+.orbit-1 .skill-item:nth-child(3) {
+  transform: rotate(240deg) translateX(100px) rotate(-240deg);
+}
+
+/* Second orbit items */
+.orbit-2 .skill-item:nth-child(1) {
+  transform: rotate(0deg) translateX(150px) rotate(0deg);
+}
+.orbit-2 .skill-item:nth-child(2) {
+  transform: rotate(120deg) translateX(150px) rotate(-120deg);
+}
+.orbit-2 .skill-item:nth-child(3) {
+  transform: rotate(240deg) translateX(150px) rotate(-240deg);
+}
+
+/* Third orbit items */
+.orbit-3 .skill-item:nth-child(1) {
+  transform: rotate(0deg) translateX(200px) rotate(0deg);
+}
+.orbit-3 .skill-item:nth-child(2) {
+  transform: rotate(120deg) translateX(200px) rotate(-120deg);
+}
+.orbit-3 .skill-item:nth-child(3) {
+  transform: rotate(240deg) translateX(200px) rotate(-240deg);
+}
+
+/* Fourth orbit items */
+.orbit-4 .skill-item:nth-child(1) {
+  transform: rotate(0deg) translateX(250px) rotate(0deg);
+}
+.orbit-4 .skill-item:nth-child(2) {
+  transform: rotate(120deg) translateX(250px) rotate(-120deg);
+}
+.orbit-4 .skill-item:nth-child(3) {
+  transform: rotate(240deg) translateX(250px) rotate(-240deg);
+}
+
+/* Apply animations */
+.orbit-1 {
+  animation: orbit1 20s linear infinite;
+}
+.orbit-2 {
+  animation: orbit2 25s linear infinite;
+}
+.orbit-3 {
+  animation: orbit3 30s linear infinite;
+}
+.orbit-4 {
+  animation: orbit4 35s linear infinite;
+}
+
+/* Keep text upright while orbiting */
+.skill-item {
+  /* ...existing skill-item styles... */
+  animation: maintainOrientation 20s linear infinite;
+}
+
+@keyframes maintainOrientation {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* ...existing code... */
+
+/* Orbital Layout Fixes */
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px dashed rgba(37, 99, 235, 0.15);
+  border-radius: 50%;
+}
+
+/* Individual orbit positioning */
+.orbit-1 .skill-item:nth-child(1) {
+  transform: rotate(0deg) translate(100px) rotate(0deg);
+}
+.orbit-1 .skill-item:nth-child(2) {
+  transform: rotate(120deg) translate(100px) rotate(-120deg);
+}
+.orbit-1 .skill-item:nth-child(3) {
+  transform: rotate(240deg) translate(100px) rotate(-240deg);
+}
+
+.orbit-2 .skill-item:nth-child(1) {
+  transform: rotate(30deg) translate(150px) rotate(-30deg);
+}
+.orbit-2 .skill-item:nth-child(2) {
+  transform: rotate(150deg) translate(150px) rotate(-150deg);
+}
+.orbit-2 .skill-item:nth-child(3) {
+  transform: rotate(270deg) translate(150px) rotate(-270deg);
+}
+
+.orbit-3 .skill-item:nth-child(1) {
+  transform: rotate(60deg) translate(200px) rotate(-60deg);
+}
+.orbit-3 .skill-item:nth-child(2) {
+  transform: rotate(180deg) translate(200px) rotate(-180deg);
+}
+.orbit-3 .skill-item:nth-child(3) {
+  transform: rotate(300deg) translate(200px) rotate(-300deg);
+}
+
+.orbit-4 .skill-item:nth-child(1) {
+  transform: rotate(90deg) translate(250px) rotate(-90deg);
+}
+.orbit-4 .skill-item:nth-child(2) {
+  transform: rotate(210deg) translate(250px) rotate(-210deg);
+}
+.orbit-4 .skill-item:nth-child(3) {
+  transform: rotate(330deg) translate(250px) rotate(-330deg);
+}
+
+/* Animation keyframes for orbits */
+@keyframes orbit1 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit2 {
+  from {
+    transform: rotate(30deg);
+  }
+  to {
+    transform: rotate(390deg);
+  }
+}
+
+@keyframes orbit3 {
+  from {
+    transform: rotate(60deg);
+  }
+  to {
+    transform: rotate(420deg);
+  }
+}
+
+@keyframes orbit4 {
+  from {
+    transform: rotate(90deg);
+  }
+  to {
+    transform: rotate(450deg);
+  }
+}
+
+/* Apply animations with different timing */
+.orbit-1 {
+  animation: orbit1 30s linear infinite;
+}
+.orbit-2 {
+  animation: orbit2 35s linear infinite;
+}
+.orbit-3 {
+  animation: orbit3 40s linear infinite;
+}
+.orbit-4 {
+  animation: orbit4 45s linear infinite;
+}
+
+/* Keep text oriented correctly */
+.skill-item {
+  position: absolute;
+  transform-origin: 0 0;
+  /* ...existing skill-item styles... */
+}
+
+/* ...existing code... */
+
+/* Clean Orbital Layout */
+.orbital-skills {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.core-node {
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  box-shadow: 0 0 30px rgba(37, 99, 235, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  z-index: 10;
+}
+
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px dashed rgba(37, 99, 235, 0.15);
+  border-radius: 50%;
+}
+
+.skill-item {
+  position: absolute;
+  left: 50%;
+  background: rgba(37, 99, 235, 0.1);
+  padding: 8px 16px;
+  border-radius: 16px;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  white-space: nowrap;
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  transform-origin: 0 50%;
+}
+
+/* Set orbit sizes */
+.orbit-1 {
+  width: 240px;
+  height: 240px;
+}
+.orbit-2 {
+  width: 360px;
+  height: 360px;
+}
+.orbit-3 {
+  width: 480px;
+  height: 480px;
+}
+.orbit-4 {
+  width: 600px;
+  height: 600px;
+}
+
+/* Simple rotation animation */
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Apply animations with different speeds */
+.orbit-1 {
+  animation: rotate 20s linear infinite;
+}
+.orbit-2 {
+  animation: rotate 25s linear infinite reverse;
+}
+.orbit-3 {
+  animation: rotate 30s linear infinite;
+}
+.orbit-4 {
+  animation: rotate 35s linear infinite reverse;
+}
+
+/* Counter-rotate items to keep them upright */
+@keyframes counter-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.orbit-1 .skill-item {
+  animation: counter-rotate 20s linear infinite;
+}
+.orbit-2 .skill-item {
+  animation: counter-rotate 25s linear infinite reverse;
+}
+.orbit-3 .skill-item {
+  animation: counter-rotate 30s linear infinite;
+}
+.orbit-4 .skill-item {
+  animation: counter-rotate 35s linear infinite reverse;
+}
+
+/* Position items at different angles */
+.orbit-1 .skill-item:nth-child(1) {
+  transform: rotate(0deg) translateX(120px);
+}
+.orbit-1 .skill-item:nth-child(2) {
+  transform: rotate(120deg) translateX(120px);
+}
+.orbit-1 .skill-item:nth-child(3) {
+  transform: rotate(240deg) translateX(120px);
+}
+
+.orbit-2 .skill-item:nth-child(1) {
+  transform: rotate(0deg) translateX(180px);
+}
+.orbit-2 .skill-item:nth-child(2) {
+  transform: rotate(120deg) translateX(180px);
+}
+.orbit-2 .skill-item:nth-child(3) {
+  transform: rotate(240deg) translateX(180px);
+}
+
+.orbit-3 .skill-item:nth-child(1) {
+  transform: rotate(0deg) translateX(240px);
+}
+.orbit-3 .skill-item:nth-child(2) {
+  transform: rotate(120deg) translateX(240px);
+}
+.orbit-3 .skill-item:nth-child(3) {
+  transform: rotate(240deg) translateX(240px);
+}
+
+.orbit-4 .skill-item:nth-child(1) {
+  transform: rotate(0deg) translateX(300px);
+}
+.orbit-4 .skill-item:nth-child(2) {
+  transform: rotate(120deg) translateX(300px);
+}
+.orbit-4 .skill-item:nth-child(3) {
+  transform: rotate(240deg) translateX(300px);
+}
+
+/* ...existing code... */
+
+/* Update the timing for independent movement */
+.orbit-1 .skill-item:nth-child(1) {
+  animation: orbit1 30s linear infinite;
+}
+.orbit-1 .skill-item:nth-child(2) {
+  animation: orbit1 30s linear infinite 12s;
+}
+.orbit-1 .skill-item:nth-child(3) {
+  animation: orbit1 30s linear infinite 20s;
+}
+
+.orbit-2 .skill-item:nth-child(1) {
+  animation: orbit2 35s linear infinite 5s;
+}
+.orbit-2 .skill-item:nth-child(2) {
+  animation: orbit2 35s linear infinite 15s;
+}
+.orbit-2 .skill-item:nth-child(3) {
+  animation: orbit2 35s linear infinite 25s;
+}
+
+.orbit-3 .skill-item:nth-child(1) {
+  animation: orbit3 40s linear infinite 8s;
+}
+.orbit-3 .skill-item:nth-child(2) {
+  animation: orbit3 40s linear infinite 18s;
+}
+.orbit-3 .skill-item:nth-child(3) {
+  animation: orbit3 40s linear infinite 28s;
+}
+
+.orbit-4 .skill-item:nth-child(1) {
+  animation: orbit4 45s linear infinite 3s;
+}
+.orbit-4 .skill-item:nth-child(2) {
+  animation: orbit4 45s linear infinite 22s;
+}
+.orbit-4 .skill-item:nth-child(3) {
+  animation: orbit4 45s linear infinite 33s;
+}
+
+/* ...existing code... */
+
+/* Increase orbit sizes and spacing */
+.orbit-1 {
+  width: 300px; /* Increased from 200px */
+  height: 300px;
+}
+.orbit-2 {
+  width: 450px; /* Increased from 300px */
+  height: 450px;
+}
+.orbit-3 {
+  width: 600px; /* Increased from 400px */
+  height: 600px;
+}
+.orbit-4 {
+  width: 750px; /* Increased from 500px */
+  height: 750px;
+}
+
+/* Update orbital radiuses in animations */
+@keyframes orbit1 {
+  from {
+    transform: rotate(0deg) translateX(150px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(150px) rotate(-360deg);
+  }
+}
+
+@keyframes orbit2 {
+  from {
+    transform: rotate(0deg) translateX(225px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(225px) rotate(-360deg);
+  }
+}
+
+@keyframes orbit3 {
+  from {
+    transform: rotate(0deg) translateX(300px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(300px) rotate(-360deg);
+  }
+}
+
+@keyframes orbit4 {
+  from {
+    transform: rotate(0deg) translateX(375px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(375px) rotate(-360deg);
+  }
+}
+
+/* Adjust container size to fit larger orbits */
+.orbital-skills {
+  width: 800px; /* Increased from 600px */
+  height: 800px;
+}
+
+/* Adjust mobile responsiveness for new sizes */
+@media (max-width: 768px) {
+  .orbital-skills {
+    width: 400px;
+    height: 400px;
+    transform: scale(0.5);
+    transform-origin: center center;
+  }
+}
+
+/* ...existing code... */
