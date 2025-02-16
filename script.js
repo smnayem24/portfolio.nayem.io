@@ -1,183 +1,46 @@
+/**
+ * @license
+ * Copyright (c) 2023 MD Jannatul Nayem
+ * This code is licensed under the MIT License.
+ * See LICENSE.md for details.
+ */
+
+// Single DOMContentLoaded event listener for all initializations
 document.addEventListener('DOMContentLoaded', () => {
-    // Replace jQuery scroll handler
-    window.addEventListener('scroll', () => {
-        // Sticky navbar
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 20) {
-            navbar.classList.add('sticky');
-        } else {
-            navbar.classList.remove('sticky');
-        }
-    });
-
-    // Smooth scroll for navigation
-    document.querySelectorAll('.navbar .menu li a').forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href');
-            document.querySelector(targetId).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    // Mobile menu toggle
-    const menuBtn = document.querySelector('.menu-btn');
-    const menu = document.querySelector('.navbar .menu');
-    menuBtn.addEventListener('click', () => {
-        menu.classList.toggle('active');
-        menuBtn.querySelector('i').classList.toggle('active');
-    });
-
-    // Initialize modals
-    initializeModals();
-});
-
-// Initialize particles.js after DOM load
-document.addEventListener('DOMContentLoaded', () => {
-    if(typeof particlesJS !== 'undefined') {
-        particlesJS('particles-js', { 
-            /* your particles config */ 
-        });
-    }
-});
-
-// Theme toggle
-const themeToggle = document.querySelector('.theme-toggle');
-themeToggle.addEventListener('click', () => {
-    document.body.dataset.theme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
-    themeToggle.querySelector('i').classList.toggle('fa-sun');
-    themeToggle.querySelector('i').classList.toggle('fa-moon');
-});
-
-// Simple Modal Implementation
-document.addEventListener('DOMContentLoaded', function() {
-    // Get all Learn More buttons
-    const buttons = document.querySelectorAll('.project-details-btn');
-    const modalContainer = document.querySelector('.modal-container');
+    // Initialize all features
+    initNavbar();
+    initParticles();
+    initTyped();
+    initSkillsCanvas();
+    initProjectNavigation();
+    initModals();
+    initBookNavigation();
     
-    // Add click event to each button
-    buttons.forEach(button => {
-        button.addEventListener('click', function() {
-            const projectCard = this.closest('.project-card');
-            const projectId = projectCard.getAttribute('data-project');
-            const modal = document.getElementById(`${projectId}-modal`);
-            
-            if (modal) {
-                modalContainer.style.display = 'flex';
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-            }
-        });
-    });
-    
-    // Close modal when clicking X or outside
-    document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('close-modal') || e.target === modalContainer) {
-            modalContainer.style.display = 'none';
-            document.querySelectorAll('.project-modal').forEach(modal => {
-                modal.style.display = 'none';
-            });
-            document.body.style.overflow = 'auto';
-        }
-    });
-    
-    // Close with Escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            modalContainer.style.display = 'none';
-            document.querySelectorAll('.project-modal').forEach(modal => {
-                modal.style.display = 'none';
-            });
-            document.body.style.overflow = 'auto';
-        }
-    });
+    // Add card interactions
+    initCardInteractions();
 });
 
-// Add project navigation functionality
-document.addEventListener('DOMContentLoaded', () => {
-  const projectsGrid = document.querySelector('.projects-grid');
-  let currentIndex = 0;
-
-  // Function to scroll to next project
-  function scrollToNext() {
-    const cards = document.querySelectorAll('.project-card');
-    currentIndex = (currentIndex + 1) % cards.length;
-    cards[currentIndex].scrollIntoView({
-      behavior: 'smooth',
-      block: 'nearest',
-      inline: 'center'
-    });
-  }
-
-  // Function to scroll to previous project
-  function scrollToPrev() {
-    const cards = document.querySelectorAll('.project-card');
-    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-    cards[currentIndex].scrollIntoView({
-      behavior: 'smooth',
-      block: 'nearest',
-      inline: 'center'
-    });
-  }
-
-  // Add keyboard navigation
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') scrollToNext();
-    if (e.key === 'ArrowLeft') scrollToPrev();
-  });
-
-  // Add touch swipe functionality
-  let touchStartX = 0;
-  projectsGrid.addEventListener('touchstart', (e) => {
-    touchStartX = e.touches[0].clientX;
-  });
-
-  projectsGrid.addEventListener('touchend', (e) => {
-    const touchEndX = e.changedTouches[0].clientX;
-    const diff = touchStartX - touchEndX;
-    
-    if (Math.abs(diff) > 50) { // Minimum swipe distance
-      if (diff > 0) scrollToNext();
-      else scrollToPrev();
-    }
-  });
-});
-
-// Add these functions at global scope
+// Single implementation of scroll functions
 function scrollToNext() {
     const container = document.querySelector('.projects-grid');
-    const cardWidth = document.querySelector('.project-card').offsetWidth;
-    container.scrollBy({
-        left: cardWidth + 32, // card width + gap
-        behavior: 'smooth'
+    const scrollAmount = container.offsetWidth * 0.8;
+    container.scrollBy({ 
+        left: scrollAmount, 
+        behavior: 'smooth' 
     });
 }
 
 function scrollToPrev() {
     const container = document.querySelector('.projects-grid');
-    const cardWidth = document.querySelector('.project-card').offsetWidth;
-    container.scrollBy({
-        left: -(cardWidth + 32), // card width + gap
-        behavior: 'smooth'
+    const scrollAmount = container.offsetWidth * 0.8;
+    container.scrollBy({ 
+        left: -scrollAmount, 
+        behavior: 'smooth' 
     });
 }
 
-// Project Navigation Functions
-function scrollToNext() {
-    const container = document.querySelector('.projects-grid');
-    const scrollAmount = container.offsetWidth * 0.8;
-    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-}
-
-function scrollToPrev() {
-    const container = document.querySelector('.projects-grid');
-    const scrollAmount = container.offsetWidth * 0.8;
-    container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-}
-
-// Replace ONLY the jQuery navbar code with this
-document.addEventListener('DOMContentLoaded', () => {
+// Initialize Navbar
+function initNavbar() {
     const navbar = document.querySelector('.navbar');
     const menuBtn = document.querySelector('.menu-btn');
     
@@ -199,11 +62,19 @@ document.addEventListener('DOMContentLoaded', () => {
             menuBtn.querySelector('i').classList.remove('fa-times');
         }
     });
-});
+}
+
+// Initialize particles.js after DOM load
+function initParticles() {
+    if(typeof particlesJS !== 'undefined') {
+        particlesJS('particles-js', { 
+            /* your particles config */ 
+        });
+    }
+}
 
 // Update Typed.js initialization
-document.addEventListener('DOMContentLoaded', () => {
-    // Initialize Typed.js only once
+function initTyped() {
     const typingElements = document.querySelectorAll('.typing');
     
     typingElements.forEach(element => {
@@ -220,11 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
             element._typed = true; // Mark as initialized
         }
     });
-
-    // Keep other initializations here...
-    initSkillsCanvas();
-    // Add card interaction code...
-});
+}
 
 // Technical Skills Canvas Animation
 function initSkillsCanvas() {
@@ -273,11 +140,8 @@ function initSkillsCanvas() {
     };
 }
 
-// Initialize when page loads
-document.addEventListener('DOMContentLoaded', () => {
-    initSkillsCanvas();
-    
-    // Add card interaction
+// Add card interactions
+function initCardInteractions() {
     document.querySelectorAll('.skill-card').forEach(card => {
         card.addEventListener('mouseenter', () => {
             card.style.transform = 'translateY(-10px) scale(1.02)';
@@ -287,10 +151,10 @@ document.addEventListener('DOMContentLoaded', () => {
             card.style.transform = 'translateY(0) scale(1)';
         });
     });
-});
+}
 
 // Modal Functionality - Remove duplicate initialization
-function initializeModals() {
+function initModals() {
     const modalContainer = document.querySelector('.modal-container');
     if (!modalContainer) {
         console.error('Modal container not found');
@@ -360,33 +224,143 @@ function initializeModals() {
     });
 }
 
-// Verify jQuery is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    if (typeof jQuery === 'undefined') {
-        console.error('jQuery is not loaded!');
-        return;
+// Add project navigation functionality
+function initProjectNavigation() {
+    const projectsGrid = document.querySelector('.projects-grid');
+    let currentIndex = 0;
+
+    // Function to scroll to next project
+    function scrollToNext() {
+        const cards = document.querySelectorAll('.project-card');
+        currentIndex = (currentIndex + 1) % cards.length;
+        cards[currentIndex].scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+            inline: 'center'
+        });
     }
 
-    // Initialize modals
-    initializeModals();
+    // Function to scroll to previous project
+    function scrollToPrev() {
+        const cards = document.querySelectorAll('.project-card');
+        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+        cards[currentIndex].scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+            inline: 'center'
+        });
+    }
 
-    // Verify all project cards have necessary attributes
-    document.querySelectorAll('.project-card').forEach(card => {
-        const btn = card.querySelector('.project-details-btn');
-        if (!btn || !btn.getAttribute('data-project')) {
-            console.warn('Project card missing data-project attribute:', card);
-        }
+    // Add keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') scrollToNext();
+        if (e.key === 'ArrowLeft') scrollToPrev();
     });
 
-    // Verify all modals exist for projects
-    document.querySelectorAll('.project-details-btn').forEach(btn => {
-        const projectId = btn.getAttribute('data-project');
-        const modal = document.getElementById(`${projectId}-modal`);
-        if (!modal) {
-            console.error(`Missing modal for project: ${projectId}`);
+    // Add touch swipe functionality
+    let touchStartX = 0;
+    projectsGrid.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+    });
+
+    projectsGrid.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].clientX;
+        const diff = touchStartX - touchEndX;
+        
+        if (Math.abs(diff) > 50) { // Minimum swipe distance
+            if (diff > 0) scrollToNext();
+            else scrollToPrev();
         }
     });
-});
+}
+
+// Book Navigation Implementation
+function initBookNavigation() {
+    const bookContainer = document.querySelector('.book-container');
+    const bookCover = document.querySelector('.book-cover');
+    const pages = document.querySelectorAll('.page');
+    const prevBtn = document.querySelector('.page-nav.prev');
+    const nextBtn = document.querySelector('.page-nav.next');
+    
+    if (!bookContainer || !bookCover || !prevBtn || !nextBtn) {
+        console.error('Missing required book navigation elements');
+        return;
+    }
+    
+    let currentPage = 1;
+    const totalPages = pages.length;
+
+    // Initialize book state
+    function initializeBook() {
+        // Hide all pages except first one
+        pages.forEach((page, index) => {
+            page.classList.remove('active');
+            if (index === 0) page.classList.add('active');
+        });
+
+        // Initially hide navigation buttons
+        if (prevBtn && nextBtn) {
+            prevBtn.style.opacity = '0';
+            nextBtn.style.opacity = '0';
+        }
+    }
+
+    // Open book
+    bookCover.addEventListener('click', () => {
+        bookContainer.classList.add('active');
+        bookCover.style.pointerEvents = 'none';
+        
+        // Show navigation buttons after book opens
+        setTimeout(() => {
+            if (prevBtn && nextBtn) {
+                prevBtn.style.opacity = '1';
+                nextBtn.style.opacity = '1';
+                updateNavigationButtons();
+            }
+        }, 500);
+    });
+
+    // Navigation handlers
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            if (currentPage > 1) {
+                changePage(currentPage - 1);
+            }
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            if (currentPage < totalPages) {
+                changePage(currentPage + 1);
+            }
+        });
+    }
+
+    function changePage(newPage) {
+        // Remove active class from current page
+        pages[currentPage - 1].classList.remove('active');
+        
+        // Add active class to new page
+        pages[newPage - 1].classList.add('active');
+        
+        currentPage = newPage;
+        updateNavigationButtons();
+    }
+
+    function updateNavigationButtons() {
+        if (prevBtn && nextBtn) {
+            prevBtn.style.opacity = currentPage === 1 ? '0.5' : '1';
+            prevBtn.style.pointerEvents = currentPage === 1 ? 'none' : 'all';
+            
+            nextBtn.style.opacity = currentPage === totalPages ? '0.5' : '1';
+            nextBtn.style.pointerEvents = currentPage === totalPages ? 'none' : 'all';
+        }
+    }
+
+    // Initialize the book
+    initializeBook();
+}
 
 // Skills Tree Interaction
 document.addEventListener('DOMContentLoaded', function() {
@@ -429,5 +403,33 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initial animation check
     animateBranches();
+});
+
+// Verify jQuery is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    if (typeof jQuery === 'undefined') {
+        console.error('jQuery is not loaded!');
+        return;
+    }
+
+    // Initialize modals
+    initModals();
+
+    // Verify all project cards have necessary attributes
+    document.querySelectorAll('.project-card').forEach(card => {
+        const btn = card.querySelector('.project-details-btn');
+        if (!btn || !btn.getAttribute('data-project')) {
+            console.warn('Project card missing data-project attribute:', card);
+        }
+    });
+
+    // Verify all modals exist for projects
+    document.querySelectorAll('.project-details-btn').forEach(btn => {
+        const projectId = btn.getAttribute('data-project');
+        const modal = document.getElementById(`${projectId}-modal`);
+        if (!modal) {
+            console.error(`Missing modal for project: ${projectId}`);
+        }
+    });
 });
 

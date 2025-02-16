@@ -6,23 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MD Jannatul Nayem</title>
     <link rel="stylesheet" href="style.css" />
-    <script
-      src="https://kit.fontawesome.com/a076d05399.js"
-      crossorigin="anonymous"
-    ></script>
-
-    <!-- <script src="script.js"></script> -->
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
     <link rel="stylesheet" href="styles/Contact.css" />
   </head>
@@ -91,67 +80,173 @@
     <section class="about" id="about">
       <div class="max-width">
         <h2 class="title">About me</h2>
-        <div class="about-content">
-          <div class="column left">
-            <!-- Add floating elements -->
-            <div class="floating-element"></div>
-            <div class="floating-element"></div>
-            <img class="image" src="images/formal_2.jpg" alt="Profile Image" />
-          </div>
-          <div class="column right">
-            <div class="text">
-              <h4>Greetings!</h4>
+        <div class="book-container">
+          <!-- Book Cover -->
+          <div class="book-cover">
+            <div class="cover-content">
+              <div class="shine"></div>
+              <h3>My Story</h3>
+              <p>Click to Open</p>
             </div>
-            <p>
-              Welcome to my digital domain! I am an ambitious Electronics and
-              Communication Engineering student, currently shaping my future at
-              NIT Silchar as an international scholar under the prestigious ICCR
-              program. With graduation on the horizon in June 2024, I'm primed
-              to make a splash in the world of technology. <br /><br />
+          </div>
 
-              My academic voyage has been a thrilling ride, marked by deep dives
-              into FPGA implementation, Verilog HDL, and ASIC design. As a
-              Summer Research Intern at MOCITE Technology, I took the helm on
-              projects aimed at revolutionizing traffic management, showcasing
-              my knack for tackling complex, real-world issues head-on.
-              <br /><br />
+          <!-- Book Pages -->
+          <div class="book-pages">
+            <!-- Navigation Buttons -->
+            <button class="page-nav prev" aria-label="Previous page">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="page-nav next" aria-label="Next page">
+              <i class="fas fa-chevron-right"></i>
+            </button>
 
-              Beyond the classroom, I'm a multifaceted individual with a passion
-              for the arts. Whether I'm lending my voice to bring stories to
-              life or captivating audiences as an event anchor, creativity is
-              the heartbeat of everything I do. <br />
-              <br />
-
-              Driven by curiosity and fueled by a relentless pursuit of
-              excellence, I'm on a mission to push the boundaries of what's
-              possible in the realm of Electronics and Communication
-              Engineering. <br />
-              <br />
-
-              Step into my world, and let's create something extraordinary
-              together!
-            </p>
-
-            <!-- Add stats section -->
-            <div class="about-stats">
-              <div class="stat-item">
-                <div class="stat-number">3+</div>
-                <div class="stat-label">Years of Experience</div>
+            <!-- Pages -->
+            <div class="pages-wrapper">
+              <div class="page" data-page="1">
+                <div class="page-content">
+                  <h3>Who Am I</h3>
+                  <p>
+                    I am a passionate VLSI Design Engineer with a deep focus on
+                    digital system design and optimization. Currently pursuing
+                    Electronics & Communication Engineering at NIT Silchar, I
+                    specialize in FPGA implementation and RTL design.
+                  </p>
+                  <p>
+                    My technical journey began with a fascination for integrated
+                    circuits and has evolved into a dedicated pursuit of
+                    excellence in digital design. I combine theoretical
+                    knowledge with practical implementation skills to create
+                    efficient and innovative solutions.
+                  </p>
+                  <p>
+                    With a strong foundation in digital electronics and a keen
+                    interest in emerging technologies, I am constantly exploring
+                    new ways to push the boundaries of what's possible in VLSI
+                    design.
+                  </p>
+                  <div class="page-footer">Page 1 of 4</div>
+                </div>
               </div>
-              <div class="stat-item">
-                <div class="stat-number">15+</</div>
-                <div class="stat-label">Projects Completed</div>
+
+              <div class="page" data-page="2">
+                <div class="page-content">
+                  <h3>Vision</h3>
+                  <p>
+                    My vision is to contribute to the advancement of
+                    semiconductor technology through innovative VLSI design
+                    solutions. I aim to bridge the gap between theoretical
+                    concepts and practical implementations in the field of
+                    digital design.
+                  </p>
+                  <p>
+                    Looking ahead, I see myself playing a key role in developing
+                    next-generation computing architectures and contributing to
+                    the evolution of efficient hardware solutions for emerging
+                    technologies like AI and quantum computing.
+                  </p>
+                  <p>
+                    I believe in creating sustainable and power-efficient
+                    designs that can make a real impact in the world of
+                    electronics and computing.
+                  </p>
+                  <div class="page-footer">Page 2 of 4</div>
+                </div>
               </div>
-              <div class="stat-item">
-                <div class="stat-number">5+</div>
-                <div class="stat-label">Technical Papers</div>
+
+              <div class="page" data-page="3">
+                <div class="page-content">
+                  <h3>Experience</h3>
+                  <p>
+                    • VLSI Design Intern at Leading Semiconductor Company
+                    (2023)<br />
+                    - Developed and optimized RTL designs for high-performance
+                    computing applications<br />
+                    - Implemented efficient verification strategies for complex
+                    digital systems
+                  </p>
+                  <p>
+                    • Research Assistant at University Digital Lab
+                    (2022-2023)<br />
+                    - Conducted research on low-power VLSI design techniques<br />
+                    - Published two technical papers in international
+                    conferences
+                  </p>
+                  <p>
+                    • Technical Team Lead, College Projects (2021-2022)<br />
+                    - Led a team of 5 in developing FPGA-based solutions<br />
+                    - Successfully delivered multiple project implementations
+                  </p>
+                  <div class="page-footer">Page 3 of 4</div>
+                </div>
+              </div>
+
+              <div class="page" data-page="4">
+                <div class="page-content">
+                  <h3>Social Activities</h3>
+                  <p>
+                    • IEEE Student Branch Coordinator<br />
+                    - Organized technical workshops and seminars<br />
+                    - Mentored junior students in digital design projects
+                  </p>
+                  <p>
+                    • VLSI Design Club Founder<br />
+                    - Created a platform for students to explore VLSI design<br />
+                    - Conducted regular knowledge-sharing sessions
+                  </p>
+                  <p>
+                    • Community Outreach<br />
+                    - Volunteer teacher for underprivileged students<br />
+                    - Organized technology awareness programs in local schools
+                  </p>
+                  <div class="page-footer">Page 4 of 4</div>
+                </div>
               </div>
             </div>
-
-            <a href="https://shorturl.at/cqPVW" target="_blank"
-              >Download Resume</a
-            >
           </div>
+        </div>
+
+        <!-- Stats Display -->
+        <div class="stats-display">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-number">3+</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-project-diagram"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-number">15+</span>
+              <span class="stat-label">Projects Done</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-file-alt"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-number">5+</span>
+              <span class="stat-label">Technical Papers</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="resume-link">
+          <a
+            href="https://shorturl.at/cqPVW"
+            target="_blank"
+            class="resume-button"
+          >
+            <span class="button-text">View Resume</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
         </div>
       </div>
     </section>
@@ -202,33 +297,33 @@
     <section class="skills" id="skills">
       <div class="max-width">
         <h2 class="title">Technical Skills</h2>
-        
+
         <section class="skills-orbital">
           <div class="orbital-skills">
             <!-- Core node -->
             <div class="core-node">Core Skills</div>
-            
+
             <!-- First orbit -->
             <div class="orbit orbit-1">
               <div class="skill-item">VLSI Design</div>
               <div class="skill-item">Digital Logic</div>
               <div class="skill-item">RTL Design</div>
             </div>
-            
+
             <!-- Second orbit -->
             <div class="orbit orbit-2">
               <div class="skill-item">Synthesis</div>
               <div class="skill-item">Verification</div>
               <div class="skill-item">Testing</div>
             </div>
-            
+
             <!-- Third orbit -->
             <div class="orbit orbit-3">
               <div class="skill-item">ASIC Flow</div>
               <div class="skill-item">FPGA</div>
               <div class="skill-item">Verilog</div>
             </div>
-            
+
             <!-- Fourth orbit -->
             <div class="orbit orbit-4">
               <div class="skill-item">SystemVerilog</div>
@@ -523,7 +618,7 @@
               <li>Power-efficient design</li>
             </ul>
 
-            <h3>Key Achievements</h>
+            <h3>Key Achievements</h3>
             <p>
               Achieved timing accuracy within ±1 second per day and reduced
               power consumption by 30% compared to traditional designs.
