@@ -2080,3 +2080,115 @@ section .title::after {
   background: var(--primary-color);
   border-radius: 4px;
 }
+
+/* Fix the skills tree orientation */
+.tree-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding: 20px;
+}
+
+.skills-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 40px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.skill-root {
+  position: relative;
+  width: 100%;
+}
+
+.root-node {
+  background: linear-gradient(45deg, #1a1a3a, #2a2a5a);
+  color: #fff;
+  padding: 25px 50px;
+  border-radius: 8px;
+  margin: 0 auto;
+  width: fit-content;
+  font-size: 24px;
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.2);
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  z-index: 2;
+}
+
+.root-branches {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 60px;
+  width: 100%;
+}
+
+.skill-branch {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: rgba(26, 26, 58, 0.8);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+/* Remove all transform properties that were causing orientation issues */
+.tree-container,
+.skill-root,
+.root-node,
+.skill-branch {
+  transform: none;
+}
+
+/* ...existing code... */
+
+.skills-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.skill-card {
+  background: rgba(26, 26, 58, 0.8);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  border-radius: 12px;
+  padding: 25px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(37, 99, 235, 0.2);
+  background: rgba(26, 26, 58, 0.95);
+}
+
+.skill-card-icon {
+  font-size: 2.5rem;
+  color: #2563eb;
+  margin-bottom: 15px;
+}
+
+.skill-card-title {
+  color: #fff;
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.skill-card-text {
+  color: #a0aec0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Position the core expertise section */
+.skill-root {
+  margin-top: -20px;
+}
+
+/* ...existing code... */
