@@ -59,19 +59,6 @@ $(document).ready(function(){
 
 });
 
-const hireButton = document.getElementById('hireButton');
-const floatingWindow = document.getElementById('floatingWindow');
-
-hireButton.addEventListener('click', () => {
-  floatingWindow.style.display = 'block';
-});
-
-const closeButton = document.getElementById('closeButton');
-
-closeButton.addEventListener('click', () => {
-  floatingWindow.style.display = 'none';
-});
-
 // Initialize particles.js after DOM load
 document.addEventListener('DOMContentLoaded', () => {
     if(typeof particlesJS !== 'undefined') {

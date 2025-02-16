@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,7 +11,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
+
     <!-- <script src="script.js"></script> -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link
@@ -20,7 +19,8 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
       integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
       crossorigin="anonymous"
-      referrerpolicy="no-referrer"/>
+      referrerpolicy="no-referrer"
+    />
   </head>
 
   <body>
@@ -82,31 +82,6 @@
       </div>
     </section>
 
-    <!-- Floating Window -->
-    <div id="floatingWindow">
-      <button id="closeButton" class="close-button">&times;</button>
-      <br>
-        <!-- Service selection options -->
-        <label for="service">Choose a service:</label> <br>
-        <select id="service">
-          <option value="service1">Service 1</option>
-          <option value="service2">Service 2</option>
-          <!-- Add more service options as needed -->
-        </select>
-
-        <!-- Payment options -->
-        <br>
-        <label for="payment">Choose a payment option:</label> <br>
-        <input type="radio" name="payment" value="option1" />Option 1
-        <input type="radio" name="payment" value="option2" />Option 2
-        <!-- Add more payment options as needed -->
-
-        <br>
-        <!-- Payment submission button -->
-        <button type="submit">Make Payment</button>
-      </form>
-    </div>
-
     <!--About Section-->
 
     <section class="about" id="about">
@@ -124,22 +99,35 @@
               <h4>Greetings!</h4>
             </div>
             <p>
-              Welcome to my digital domain! I am an ambitious Electronics and Communication Engineering student, 
-              currently shaping my future at NIT Silchar as an international scholar under the prestigious ICCR program. 
-              With graduation on the horizon in June 2024, I'm primed to make a splash in the world of technology. <br><br>
+              Welcome to my digital domain! I am an ambitious Electronics and
+              Communication Engineering student, currently shaping my future at
+              NIT Silchar as an international scholar under the prestigious ICCR
+              program. With graduation on the horizon in June 2024, I'm primed
+              to make a splash in the world of technology. <br /><br />
 
-              My academic voyage has been a thrilling ride, marked by deep dives into FPGA implementation, Verilog HDL, and ASIC design. 
-              As a Summer Research Intern at MOCITE Technology, I took the helm on projects aimed at revolutionizing traffic management, 
-              showcasing my knack for tackling complex, real-world issues head-on. <br><br>
+              My academic voyage has been a thrilling ride, marked by deep dives
+              into FPGA implementation, Verilog HDL, and ASIC design. As a
+              Summer Research Intern at MOCITE Technology, I took the helm on
+              projects aimed at revolutionizing traffic management, showcasing
+              my knack for tackling complex, real-world issues head-on.
+              <br /><br />
 
-             Beyond the classroom, I'm a multifaceted individual with a passion for the arts. Whether I'm lending my voice to bring stories 
-              to life or captivating audiences as an event anchor, creativity is the heartbeat of everything I do. <br> <br>
+              Beyond the classroom, I'm a multifaceted individual with a passion
+              for the arts. Whether I'm lending my voice to bring stories to
+              life or captivating audiences as an event anchor, creativity is
+              the heartbeat of everything I do. <br />
+              <br />
 
-              Driven by curiosity and fueled by a relentless pursuit of excellence, I'm on a mission to push the boundaries of what's possible in the realm of Electronics and Communication Engineering. <br> <br>
+              Driven by curiosity and fueled by a relentless pursuit of
+              excellence, I'm on a mission to push the boundaries of what's
+              possible in the realm of Electronics and Communication
+              Engineering. <br />
+              <br />
 
-              Step into my world, and let's create something extraordinary together!
+              Step into my world, and let's create something extraordinary
+              together!
             </p>
-            
+
             <!-- Add stats section -->
             <div class="about-stats">
               <div class="stat-item">
@@ -155,15 +143,17 @@
                 <div class="stat-label">Technical Papers</div>
               </div>
             </div>
-            
-            <a href="https://shorturl.at/cqPVW" target="_blank">Download Resume</a>
+
+            <a href="https://shorturl.at/cqPVW" target="_blank"
+              >Download Resume</a
+            >
           </div>
         </div>
       </div>
     </section>
 
     <!--Service Section-->
-  <!--
+    <!--
     <section class="services" id="services">
       <div class="max-width">
         <h2 class="title">My Services</h2>
@@ -277,120 +267,141 @@
 
     <!--My Projects-->
     <section class="projects-section" id="projects">
-        <div class="max-width">
-            <h2 class="title">My Projects</h2>
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <i class="fas fa-microchip"></i>
-                        <div>
-                            <h3 class="project-title">Efficient Encryption and Decryption System</h3>
-                            <p class="project-subtitle">B.Tech Final Year Project at NIT Silchar</p>
-                        </div>
-                    </div>
-                    <p>FPGA Implementation of Cryptographic Algorithms (16, 32, 64 & 128 bits) using Verilog</p>
-                    <div class="project-tags">
-                        <span class="project-tag">FPGA</span>
-                        <span class="project-tag">Verilog</span>
-                        <span class="project-tag">Cryptography</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link primary">Learn More</a>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <i class="fas fa-traffic-light"></i>
-                        <div>
-                            <h3 class="project-title">Smart Traffic Signal Controller</h3>
-                            <p class="project-subtitle">Summer Research Intern at MOCITE Technology</p>
-                        </div>
-                    </div>
-                    <p>FPGA Implementation of an intelligent traffic management system using Verilog HDL for real-time signal control</p>
-                    <div class="project-tags">
-                        <span class="project-tag">FPGA</span>
-                        <span class="project-tag">Verilog</span>
-                        <span class="project-tag">RTL</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link primary">Learn More</a>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h3 class="project-title">Digital Clock Implementation</h3>
-                            <p class="project-subtitle">Academic Project at NIT Silchar</p>
-                        </div>
-                    </div>
-                    <p>Digital Clock using seven-segment display for accurate time display in hours, minutes, and seconds</p>
-                    <div class="project-tags">
-                        <span class="project-tag">Digital Design</span>
-                        <span class="project-tag">Hardware</span>
-                        <span class="project-tag">RTL</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link primary">Learn More</a>
-                    </div>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <i class="fas fa-memory"></i>
-                        <div>
-                            <h3 class="project-title">RISC-V Processor Design</h3>
-                            <p class="project-subtitle">Advanced Digital Design Project</p>
-                        </div>
-                    </div>
-                    <p>Implementation of a basic RISC-V processor core with pipelining and hazard detection</p>
-                    <div class="project-tags">
-                        <span class="project-tag">RISC-V</span>
-                        <span class="project-tag">Verilog</span>
-                        <span class="project-tag">CPU Design</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link primary">Learn More</a>
-                    </div>
-                </div>
-
-                <!-- Project 5 -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <i class="fas fa-microchip"></i>
-                        <div>
-                            <h3 class="project-title">ALU Design and Synthesis</h3>
-                            <p class="project-subtitle">Digital Electronics Lab</p>
-                        </div>
-                    </div>
-                    <p>32-bit Arithmetic Logic Unit with floating-point operations and optimization for power efficiency</p>
-                    <div class="project-tags">
-                        <span class="project-tag">RTL</span>
-                        <span class="project-tag">SystemVerilog</span>
-                        <span class="project-tag">Synthesis</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link primary">Learn More</a>
-                    </div>
-                </div>
+      <div class="max-width">
+        <h2 class="title">My Projects</h2>
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <div class="project-card">
+            <div class="project-header">
+              <i class="fas fa-microchip"></i>
+              <div>
+                <h3 class="project-title">
+                  Efficient Encryption and Decryption System
+                </h3>
+                <p class="project-subtitle">
+                  B.Tech Final Year Project at NIT Silchar
+                </p>
+              </div>
             </div>
-
-            <!-- Add Navigation Arrows -->
-            <div class="project-navigation">
-                <button class="nav-arrow prev" onclick="scrollToPrev()">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="nav-arrow next" onclick="scrollToNext()">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
+            <p>
+              FPGA Implementation of Cryptographic Algorithms (16, 32, 64 & 128
+              bits) using Verilog
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">FPGA</span>
+              <span class="project-tag">Verilog</span>
+              <span class="project-tag">Cryptography</span>
             </div>
+            <div class="project-links">
+              <a href="#" class="project-link primary">Learn More</a>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card">
+            <div class="project-header">
+              <i class="fas fa-traffic-light"></i>
+              <div>
+                <h3 class="project-title">Smart Traffic Signal Controller</h3>
+                <p class="project-subtitle">
+                  Summer Research Intern at MOCITE Technology
+                </p>
+              </div>
+            </div>
+            <p>
+              FPGA Implementation of an intelligent traffic management system
+              using Verilog HDL for real-time signal control
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">FPGA</span>
+              <span class="project-tag">Verilog</span>
+              <span class="project-tag">RTL</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link primary">Learn More</a>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card">
+            <div class="project-header">
+              <i class="fas fa-clock"></i>
+              <div>
+                <h3 class="project-title">Digital Clock Implementation</h3>
+                <p class="project-subtitle">Academic Project at NIT Silchar</p>
+              </div>
+            </div>
+            <p>
+              Digital Clock using seven-segment display for accurate time
+              display in hours, minutes, and seconds
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Digital Design</span>
+              <span class="project-tag">Hardware</span>
+              <span class="project-tag">RTL</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link primary">Learn More</a>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="project-card">
+            <div class="project-header">
+              <i class="fas fa-memory"></i>
+              <div>
+                <h3 class="project-title">RISC-V Processor Design</h3>
+                <p class="project-subtitle">Advanced Digital Design Project</p>
+              </div>
+            </div>
+            <p>
+              Implementation of a basic RISC-V processor core with pipelining
+              and hazard detection
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">RISC-V</span>
+              <span class="project-tag">Verilog</span>
+              <span class="project-tag">CPU Design</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link primary">Learn More</a>
+            </div>
+          </div>
+
+          <!-- Project 5 -->
+          <div class="project-card">
+            <div class="project-header">
+              <i class="fas fa-microchip"></i>
+              <div>
+                <h3 class="project-title">ALU Design and Synthesis</h3>
+                <p class="project-subtitle">Digital Electronics Lab</p>
+              </div>
+            </div>
+            <p>
+              32-bit Arithmetic Logic Unit with floating-point operations and
+              optimization for power efficiency
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">RTL</span>
+              <span class="project-tag">SystemVerilog</span>
+              <span class="project-tag">Synthesis</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link primary">Learn More</a>
+            </div>
+          </div>
         </div>
+
+        <!-- Add Navigation Arrows -->
+        <div class="project-navigation">
+          <button class="nav-arrow prev" onclick="scrollToPrev()">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="nav-arrow next" onclick="scrollToNext()">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
     </section>
 
     <!--Contact Section-->
@@ -401,8 +412,8 @@
           <div class="column left">
             <div class="text">Get in Touch</div>
             <p>
-              For any queries and suggestions, you can directly contact me through
-              sending just a mail. It's better to jot down your words on
+              For any queries and suggestions, you can directly contact me
+              through sending just a mail. It's better to jot down your words on
               <span><b>mailbox.</b></span
               ><br />
               <i>But sorry to say, currently this feature is not available.</i>
