@@ -185,19 +185,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Add these functions at global scope
 function scrollToNext() {
-  const projectsGrid = document.querySelector('.projects-grid');
-  projectsGrid.scrollBy({
-    left: 370, // card width + gap
-    behavior: 'smooth'
-  });
+    const container = document.querySelector('.projects-grid');
+    const cardWidth = document.querySelector('.project-card').offsetWidth;
+    container.scrollBy({
+        left: cardWidth + 32, // card width + gap
+        behavior: 'smooth'
+    });
 }
 
 function scrollToPrev() {
-  const projectsGrid = document.querySelector('.projects-grid');
-  projectsGrid.scrollBy({
-    left: -370, // card width + gap
-    behavior: 'smooth'
-  });
+    const container = document.querySelector('.projects-grid');
+    const cardWidth = document.querySelector('.project-card').offsetWidth;
+    container.scrollBy({
+        left: -(cardWidth + 32), // card width + gap
+        behavior: 'smooth'
+    });
 }
 
 // Replace ONLY the jQuery navbar code with this
